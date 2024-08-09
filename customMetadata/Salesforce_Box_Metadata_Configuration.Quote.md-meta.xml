@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Quote</label>
+    <protected>false</protected>
+    <values>
+        <field>Box_Account_Type__c</field>
+        <value xsi:type="xsd:string">enterprise</value>
+    </values>
+    <values>
+        <field>Box_Metadata_Name__c</field>
+        <value xsi:type="xsd:string">quoteInvoiceSalesforceData</value>
+    </values>
+    <values>
+        <field>Metadata_Name_and_Record_Field__c</field>
+        <value xsi:type="xsd:string">accountName=&gt;Account.Name;customerId=&gt;Account.Customer_Number__c;resellerYn=&gt;Account.RecordType.DeveloperName;opportunityName=&gt;Opportunity.Name;documentType=&gt;Sales_Text;nameOfDocument=&gt;Quote_Text;invoiceNumberDocumentId=&gt;quote_number__c;deliveryType=&gt;Opportunity.Delivery_Type__c;invoiceDate1=&gt;Quote_Date__c</value>
+    </values>
+    <values>
+        <field>Record_Type_Check_Fields__c</field>
+        <value xsi:type="xsd:string">Account.RecordType.DeveloperName=&gt;Reseller</value>
+    </values>
+</CustomMetadata>

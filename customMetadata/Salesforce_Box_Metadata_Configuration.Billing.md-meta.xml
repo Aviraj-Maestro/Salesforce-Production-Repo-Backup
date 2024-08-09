@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>AcctSeed__Billing__c</label>
+    <protected>false</protected>
+    <values>
+        <field>Box_Account_Type__c</field>
+        <value xsi:type="xsd:string">enterprise</value>
+    </values>
+    <values>
+        <field>Box_Metadata_Name__c</field>
+        <value xsi:type="xsd:string">quoteInvoiceSalesforceData</value>
+    </values>
+    <values>
+        <field>Metadata_Name_and_Record_Field__c</field>
+        <value xsi:type="xsd:string">accountName=&gt;AcctSeed__Opportunity__r.Account.Name;customerId=&gt;AcctSeed__Opportunity__r.Account.Customer_Number__c;resellerYn=&gt;AcctSeed__Opportunity__r.Account.RecordType.DeveloperName;opportunityName=&gt;AcctSeed__Opportunity__r.Name;documentType=&gt;Sales_Text;nameOfDocument=&gt;Inovice_Text;invoiceNumberDocumentId=&gt;Name;invoiceDate1=&gt;AcctSeed__Date__c;deliveryType=&gt;AcctSeed__Opportunity__r.Delivery_Type__c</value>
+    </values>
+    <values>
+        <field>Record_Type_Check_Fields__c</field>
+        <value xsi:type="xsd:string">AcctSeed__Opportunity__r.Account.RecordType.DeveloperName</value>
+    </values>
+</CustomMetadata>

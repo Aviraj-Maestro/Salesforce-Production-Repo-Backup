@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Bakersfield_CA</label>
+    <protected>false</protected>
+    <values>
+        <field>Pickup_Fitment_Address_Label__c</field>
+        <value xsi:type="xsd:string">Bakersfield, CA</value>
+    </values>
+    <values>
+        <field>Pickup_Fitment_Address__c</field>
+        <value xsi:type="xsd:string">2546 S Union Ave, Bakersfield, CA  93307</value>
+    </values>
+</CustomMetadata>

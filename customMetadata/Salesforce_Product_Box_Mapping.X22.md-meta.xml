@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>22</label>
+    <protected>false</protected>
+    <values>
+        <field>Box_Folder_ID__c</field>
+        <value xsi:type="xsd:string">248415358974</value>
+    </values>
+    <values>
+        <field>Box_Product_Name__c</field>
+        <value xsi:type="xsd:string">Products_Arisun_11R22.5 AZ926 - 16 PR</value>
+    </values>
+    <values>
+        <field>Salesforce_Product_Name__c</field>
+        <value xsi:type="xsd:string">ARISUN 11R22.5 AZ926 - 16 PR</value>
+    </values>
+</CustomMetadata>
