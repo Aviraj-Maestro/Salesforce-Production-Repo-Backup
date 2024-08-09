@@ -1,0 +1,457 @@
+<template>
+    <template if:true={recordId}>   
+        <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeAction}>
+                <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Payable</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_x-small slds-custom_content" id="modal-content-id-1">
+            <template if:true={isLoading}>
+                <div class="slds-align--absolute-center slds-is-relative">
+                    <lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            <div class="slds-section">
+                <h3 class="slds-section__title slds-theme_shade slds-hide slds-hide">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Product Vendor</span>
+                </h3>
+            </div>
+            <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                <lightning-input type="checkbox" class="vendor1" label="Product Vendor" name="input1"
+                    onchange={handleChangeCheck}></lightning-input>
+            </div>
+            <div class="slds-custom_fieldpadding" if:true={displayFields.productVendor}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input required type="date" class="vendor" name="vendorIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input required type="date" class="vendor" name="vendorDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input required type="text" class="vendor" name="vendorPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-section">
+                <h3 class="slds-section__title slds-theme_shade slds-hide slds-hide">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Shipping
+                        Company</span>
+                </h3>
+            </div>
+            <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                <lightning-input type="checkbox" class="shipping1" label="Shipping Company" name="input1"
+                    onchange={handleChangeCheck}></lightning-input>
+            </div>
+            <div class="slds-custom_fieldpadding" if:true={displayFields.shippingCompany}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input required type="date" class="shipping" name="shippingIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input required type="date" class="shipping" name="shippingDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input required type="text" class="shipping" name="shippingPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+
+            <div if:true={internationalPO}>
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Custom Clearing Agent</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="customclearing1" label="Custom Clearing Agent" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-custom_fieldpadding" if:true={displayFields.customClearingAgent}>
+                    <div class="slds-grid slds-wrap">
+
+                        <div class="slds-col slds-size_6-of-12 ">
+                            <lightning-input required type="date" class="customclearing" name="customclearingIssueDate" label="Issue date"
+                                onchange={handleChange}>
+                            </lightning-input>
+
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                            <lightning-input required type="date" class="customclearing" name="customclearingDueDate" label="Due date"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_12-of-12 ">
+                        <lightning-input required type="text" class="customclearing" name="customclearingPayeeReference" label="Payee Reference"
+                            onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Import Custom Duty Vendor</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="customDutyVendor1" label="Import Custom Duty Vendor" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-custom_fieldpadding" if:true={displayFields.customDutyVendor}>
+                    <div class="slds-grid slds-wrap">
+
+                        <div class="slds-col slds-size_6-of-12 ">
+                            <lightning-input required type="date" class="customDutyVendor" name="customDutyVendorIssueDate" label="Issue date"
+                                onchange={handleChange}>
+                            </lightning-input>
+
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                            <lightning-input required type="date" class="customDutyVendor" name="customDutyVendorDueDate" label="Due date"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_12-of-12 ">
+                        <lightning-input required type="text" class="customDutyVendor" name="customDutyVendorPayeeReference" label="Payee Reference"
+                            onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Local Trucking</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="localtrucking1" label="Local Trucking" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-custom_fieldpadding" if:true={displayFields.localTrucking}>
+                    <div class="slds-grid slds-wrap">
+
+                        <div class="slds-col slds-size_6-of-12 ">
+                            <lightning-input required type="date" class="localtrucking" name="localtruckingIssueDate" label="Issue date"
+                                onchange={handleChange}>
+                            </lightning-input>
+
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                            <lightning-input required type="date" class="localtrucking" name="localtruckingDueDate" label="Due date"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_12-of-12 ">
+                        <lightning-input required type="text" class="localtrucking" name="localtruckingPayeeReference" label="Payee Reference"
+                            onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-section">
+                <h3 class="slds-section__title slds-theme_shade slds-hide">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Other Vendor 1</span>
+                </h3>
+            </div>
+            <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                <lightning-input type="checkbox" class="othervendor11" label="Other Vendor 1" name="input1"
+                    onchange={handleChangeCheck}></lightning-input>
+            </div>
+            <div class="slds-custom_fieldpadding" if:true={displayFields.otherVendor1}>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input required type="date" class="othervendor1" name="othervendor1IssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input required type="date" class="othervendor1" name="othervendor1DueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input required type="text" class="othervendor1" name="othervendor1PayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+            <div class="slds-section">
+                <h3 class="slds-section__title slds-theme_shade slds-hide">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Other Vendor 2</span>
+                </h3>
+            </div>
+            <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                <lightning-input type="checkbox" class="othervendor21" label="Other Vendor 2" name="input1"
+                    onchange={handleChangeCheck}></lightning-input>
+            </div>
+            <div class="slds-custom_fieldpadding" if:true={displayFields.otherVendor2}>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input required type="date" class="othervendor2" name="othervendor2IssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input required type="date" class="othervendor2" name="othervendor2DueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input required type="text" class="othervendor2" name="othervendor2PayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+        </div>
+        <footer class="slds-modal__footer">
+            <lightning-button class="slds-m-top_small" variant="Neutral" type="Cancel" name="Cancel" label="Cancel"
+                onclick={closeAction}>
+            </lightning-button>
+            <lightning-button class="slds-p-horizontal_x-small slds-m-top_small" variant="brand" type="submit"
+                name="save" label="Create Payable" onclick={handleCreatePayable}>
+            </lightning-button>
+        </footer>
+    </template>       
+    
+    
+    <!--<template if:true={recordId}>
+        <template if:true={isLoading}>
+            <div class="slds-align- -absolute-center">
+                <lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <lightning-quick-action-panel header="Create Payable">
+            <div class="slds-box">
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Product Vendor</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="vendor1" label="Product Vendor" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div if:true={displayFields.productVendor}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_6-of-12 ">
+                            <lightning-input type="date" class="vendor" name="vendorIssueDate" label="Issue date"
+                                onchange={handleChange}>
+                            </lightning-input>
+
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                            <lightning-input type="date" class="vendor" name="vendorDueDate" label="Due date"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_12-of-12 ">
+                        <lightning-input type="text" class="vendor" name="vendorPayeeReference" label="Payee Reference"
+                            onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Shipping
+                            Company</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="shipping1" label="Shipping Company" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="shipping" name="shippingIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="shipping" name="shippingDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="shipping" name="shippingPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+
+
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Custom Clearing Agent</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="customclearing1" label="Custom Clearing Agent" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="customclearing" name="customclearingIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="customclearing" name="customclearingDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="customclearing" name="customclearingPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+                
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Import Custom Duty Vendor</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="customDutyVendor1" label="Import Custom Duty Vendor" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="customDutyVendor" name="customDutyVendorIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="customDutyVendor" name="customDutyVendorDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="customDutyVendor" name="customDutyVendorPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+
+
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Local Trucking</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="localtrucking1" label="Local Trucking" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="localtrucking" name="localtruckingIssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="localtrucking" name="localtruckingDueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="localtrucking" name="localtruckingPayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Other Vendor1</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="othervendor11" label="Other Vendor1" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="othervendor1" name="othervendor1IssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="othervendor1" name="othervendor1DueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="othervendor1" name="othervendor1PayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+                
+                <div class="slds-section">
+                    <h3 class="slds-section__title slds-theme_shade slds-hide">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Other Vendor2</span>
+                    </h3>
+                </div>
+                <div class="slds-modal__content slds-p-around_x-small slds-modal__custom-content">
+                    <lightning-input type="checkbox" class="othervendor21" label="Other Vendor2" name="input1"
+                        onchange={handleChangeCheck}></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div class="slds-col slds-size_6-of-12 ">
+                        <lightning-input type="date" class="othervendor2" name="othervendor2IssueDate" label="Issue date"
+                            onchange={handleChange}>
+                        </lightning-input>
+
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-left_small ">
+                        <lightning-input type="date" class="othervendor2" name="othervendor2DueDate" label="Due date"
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 ">
+                    <lightning-input type="text" class="othervendor2" name="othervendor2PayeeReference" label="Payee Reference"
+                        onchange={handleChange}></lightning-input>
+                </div>
+
+            </div>
+
+            <div slot="footer">
+                <lightning-button class="slds-m-top_small" variant="Neutral" type="Cancel" name="Cancel" label="Cancel"
+                    onclick={closeAction}>
+                </lightning-button>
+                <lightning-button class="slds-p-horizontal_x-small slds-m-top_small" variant="brand" type="submit"
+                    name="save" label="Create Payable" onclick={handleCreatePayable}>
+                </lightning-button>
+            </div>
+        </lightning-quick-action-panel>
+    </template> -->
+</template>

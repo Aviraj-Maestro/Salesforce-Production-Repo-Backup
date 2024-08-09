@@ -1,0 +1,63 @@
+.slds-card {
+    background: rgb(255, 255, 255) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(221, 219, 218) !important;
+    border-radius: 0.25rem !important;
+    background-clip: padding-box !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%) !important;
+}
+
+.slds-card__header {
+    padding-top: 0.75rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 1rem !important;
+    margin: 0 0 0.75rem !important;
+}
+
+.slds-action-column_width{
+    width: 3rem;
+}
+
+.slds-card__body_inner, .slds-card__body--inner{
+    padding: 0;
+}
+
+.slds-card__side-margin{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top: 1px solid rgb(221, 219, 218);
+}
+
+.slds-row_button{
+	width: 1.5rem;
+    height: 1.5rem;
+}
+
+.slds-table_cell-buffer tr>td:first-child{
+    padding-left: 0.5rem !important;
+}
+
+.no-data-row {
+  background-color: #fff !important;
+  box-shadow: none !important;
+}
+
+.no-data-row:hover {
+  background-color: #fff !important;
+  box-shadow: none !important;
+}
+
+.slds-top{
+	top: 35%;
+}
+
+.slds-left_float{
+    float:left;
+}
+.inner_table th, .inner_table td, .inner_table th .slds-truncate{ white-space: initial;}
+.inner_table th:nth-child(1), .inner_table td:nth-child(1){width: calc(100% - 370px);}
+.inner_table th:nth-child(2), .inner_table td:nth-child(2){width: 85px;}
+.inner_table th:nth-child(3), .inner_table td:nth-child(3){width: 135px;}
+.inner_table th:nth-child(4), .inner_table td:nth-child(4){width: 150px;}

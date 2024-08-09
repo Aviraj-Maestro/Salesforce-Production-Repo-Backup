@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Check_Alt_Phone_IN</name>
+        <label>Check Alt Phone IN</label>
+        <locationX>1031</locationX>
+        <locationY>935</locationY>
+        <defaultConnector>
+            <targetReference>Check_Whatsapp_IN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Alt_Phone_Populated_IN</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Alternate_No__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Alternate_No__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Alt_Phone_IN</targetReference>
+            </connector>
+            <label>Alt Phone Populated IN</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Alt_Phone_US</name>
+        <label>Check Alt Phone US</label>
+        <locationX>503</locationX>
+        <locationY>935</locationY>
+        <defaultConnector>
+            <targetReference>Check_Whatapp_US</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Alt_Phone_Populated_US</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Alternate_No__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Alternate_No__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Alt_Phone_US</targetReference>
+            </connector>
+            <label>Alt Phone Populated US</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Country</name>
+        <label>Check Country</label>
+        <locationX>965</locationX>
+        <locationY>479</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>USA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MailingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Phone_US</targetReference>
+            </connector>
+            <label>USA</label>
+        </rules>
+        <rules>
+            <name>India</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MailingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>India</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Phone_IN</targetReference>
+            </connector>
+            <label>India</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Fax_IN</name>
+        <label>Check Fax IN</label>
+        <locationX>1031</locationX>
+        <locationY>1607</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Fax_Populated_IN</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Fax</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Fax</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Fax_IN</targetReference>
+            </connector>
+            <label>Fax Populated IN</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Fax_US</name>
+        <label>Check Fax US</label>
+        <locationX>503</locationX>
+        <locationY>1607</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Fax_Populated_US</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Fax</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Fax</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Fax_US</targetReference>
+            </connector>
+            <label>Fax Populated US</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Phone_IN</name>
+        <label>Check Phone IN</label>
+        <locationX>1031</locationX>
+        <locationY>599</locationY>
+        <defaultConnector>
+            <targetReference>Check_Alt_Phone_IN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Phone_Populated_IN</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_IN_Phone_Only</targetReference>
+            </connector>
+            <label>Phone Populated IN</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Phone_US</name>
+        <label>Check Phone US</label>
+        <locationX>503</locationX>
+        <locationY>599</locationY>
+        <defaultConnector>
+            <targetReference>Check_Alt_Phone_US</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Phone_Populated_US</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_US_Phone</targetReference>
+            </connector>
+            <label>Phone Populated US</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Whatapp_US</name>
+        <label>Check Whatapp US</label>
+        <locationX>503</locationX>
+        <locationY>1271</locationY>
+        <defaultConnector>
+            <targetReference>Check_Fax_US</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Whatsapp_Populated_US</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Whatsapp_no__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Whatsapp_no__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Whatsapp_US</targetReference>
+            </connector>
+            <label>Whatsapp Populated US</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Whatsapp_IN</name>
+        <label>Check Whatsapp IN</label>
+        <locationX>1031</locationX>
+        <locationY>1271</locationY>
+        <defaultConnector>
+            <targetReference>Check_Fax_IN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Whatsapp_Populated_IN</name>
+            <conditionLogic>(NOT(1))AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Whatsapp_no__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Whatsapp_no__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Whatsapp_IN</targetReference>
+            </connector>
+            <label>Whatsapp Populated IN</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>INAltPhone</name>
+        <dataType>String</dataType>
+        <expression>&apos;+91&apos; &amp; {!$Record.Alternate_No__c}</expression>
+    </formulas>
+    <formulas>
+        <name>INFax</name>
+        <dataType>String</dataType>
+        <expression>&apos;+91&apos; &amp; {!$Record.Fax}</expression>
+    </formulas>
+    <formulas>
+        <name>INPhone</name>
+        <dataType>String</dataType>
+        <expression>&apos;+91&apos; &amp; {!$Record.Phone}</expression>
+    </formulas>
+    <formulas>
+        <name>INWhatsapp</name>
+        <dataType>String</dataType>
+        <expression>&apos;+91&apos; &amp; {!$Record.Whatsapp_no__c}</expression>
+    </formulas>
+    <formulas>
+        <name>USAltPhone</name>
+        <dataType>String</dataType>
+        <expression>&apos;+1&apos; &amp; {!$Record.Alternate_No__c}</expression>
+    </formulas>
+    <formulas>
+        <name>USAPhone</name>
+        <dataType>String</dataType>
+        <expression>&apos;+1&apos; &amp; {!$Record.Phone}</expression>
+    </formulas>
+    <formulas>
+        <name>USFax</name>
+        <dataType>String</dataType>
+        <expression>&apos;+1&apos; &amp; {!$Record.Fax}</expression>
+    </formulas>
+    <formulas>
+        <name>USWhatsapp</name>
+        <dataType>String</dataType>
+        <expression>&apos;+1&apos; &amp; {!$Record.Whatsapp_no__c}</expression>
+    </formulas>
+    <interviewLabel>Contact Country Code Tagging on Phone {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Country Code Tagging on Phone</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Alt_Phone_IN</name>
+        <label>Update Alt Phone IN</label>
+        <locationX>899</locationX>
+        <locationY>1055</locationY>
+        <connector>
+            <targetReference>Check_Whatsapp_IN</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Alternate_No__c</field>
+            <value>
+                <elementReference>INAltPhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Alt_Phone_US</name>
+        <label>Update Alt Phone US</label>
+        <locationX>371</locationX>
+        <locationY>1055</locationY>
+        <connector>
+            <targetReference>Check_Whatapp_US</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Alternate_No__c</field>
+            <value>
+                <elementReference>USAltPhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Fax_IN</name>
+        <label>Update Fax IN</label>
+        <locationX>899</locationX>
+        <locationY>1727</locationY>
+        <inputAssignments>
+            <field>Fax</field>
+            <value>
+                <elementReference>INFax</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Fax_US</name>
+        <label>Update Fax US</label>
+        <locationX>371</locationX>
+        <locationY>1727</locationY>
+        <inputAssignments>
+            <field>Fax</field>
+            <value>
+                <elementReference>USFax</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_IN_Phone_Only</name>
+        <label>Update IN Phone</label>
+        <locationX>899</locationX>
+        <locationY>719</locationY>
+        <connector>
+            <targetReference>Check_Alt_Phone_IN</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Phone</field>
+            <value>
+                <elementReference>INPhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_US_Phone</name>
+        <label>Update US Phone</label>
+        <locationX>371</locationX>
+        <locationY>719</locationY>
+        <connector>
+            <targetReference>Check_Alt_Phone_US</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Phone</field>
+            <value>
+                <elementReference>USAPhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Whatsapp_IN</name>
+        <label>Update Whatsapp IN</label>
+        <locationX>899</locationX>
+        <locationY>1391</locationY>
+        <connector>
+            <targetReference>Check_Fax_IN</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Whatsapp_no__c</field>
+            <value>
+                <elementReference>INWhatsapp</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Whatsapp_US</name>
+        <label>Update Whatsapp US</label>
+        <locationX>371</locationX>
+        <locationY>1391</locationY>
+        <connector>
+            <targetReference>Check_Fax_US</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Whatsapp_no__c</field>
+            <value>
+                <elementReference>USWhatsapp</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Check_Country</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Phone</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Alternate_No__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Whatsapp_no__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Fax</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

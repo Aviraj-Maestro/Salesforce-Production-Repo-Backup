@@ -1,0 +1,25 @@
+<template>
+	<template if:false={isProdFamSelected}>
+     <a style="color:red">{message}</a>
+	</template>
+	<template for:each={familyList} for:item="fam">
+		<div key={fam} class="slds-form-element">
+			<div class="slds-form-element__control">
+				<div class="slds-checkbox">
+					<input type="checkbox" data-id={fam} name="options" id={fam} value="" onchange={handleFamilyCheckbox} />
+					<label class="slds-checkbox__label" for={fam}>
+						<span class="slds-checkbox_faux"></span>
+						<span class="slds-form-element__label">{fam}</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</template><!--
+    <div class="footer">
+      <button class="slds-button slds-button_brand" onclick={processSelectedFamily}>Save</button>
+    </div>
+	<footer class="slds-modal__footer">
+		<button class="slds-button slds-button_brand" onclick={processSelectedFamily}>Save</button>
+      	<span class="slds-assistive-text">Save</span>
+  	</footer>-->
+</template>

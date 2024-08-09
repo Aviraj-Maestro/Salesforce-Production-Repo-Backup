@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>CheckDelivery_ReceiverAddress_Yes_or_No</name>
+        <label>CheckDelivery_ReceiverAddress_Yes or No</label>
+        <locationX>446</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CheckDelivery_AddressYesorNo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Delivery_Address_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>YES</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Receiver_Contact_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Final_Delivery_Address</targetReference>
+            </connector>
+            <label>CheckDelivery AddressYesorNo</label>
+        </rules>
+        <rules>
+            <name>CheckReceiverContact_Yes_or_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Receiver_Contact_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>YES</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Delivery_Address_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Final_Recevier_Details</targetReference>
+            </connector>
+            <label>CheckReceiverContact Yes or No</label>
+        </rules>
+        <rules>
+            <name>Check_Delivery_and_Receiver_Both</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Delivery_Address_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>YES</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Receiver_Contact_as_per_Document__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>YES</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Final_Delivery_Address_0</targetReference>
+            </connector>
+            <label>Check Delivery and Receiver Both</label>
+        </rules>
+    </decisions>
+    <description>Final Delivery Address
+Final Receiver Details
+These above field data are auto populate from Shipping Address with Zip Code		
+when Delivery Address as per Document and Receiver Contact as per Document field are selected YES</description>
+    <interviewLabel>Final Delivery and Receiver Update by shipping {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Final Delivery and Receiver Update by shipping</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Final_Delivery_Address</name>
+        <label>Update Final Delivery Address</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>Final_Delivery_Address__c</field>
+            <value>
+                <elementReference>$Record.Shipping_Address_with_Zip_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AcctSeedERP__Purchase_Order__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Final_Delivery_Address_0</name>
+        <label>Update Final Delivery Address</label>
+        <locationX>578</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>Final_Delivery_Address__c</field>
+            <value>
+                <elementReference>$Record.Shipping_Address_with_Zip_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Final_Receiver_Details__c</field>
+            <value>
+                <elementReference>$Record.Shipping_Address_with_Zip_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AcctSeedERP__Purchase_Order__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Final_Recevier_Details</name>
+        <label>Update Final Recevier Details</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>Final_Receiver_Details__c</field>
+            <value>
+                <elementReference>$Record.Shipping_Address_with_Zip_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AcctSeedERP__Purchase_Order__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>CheckDelivery_ReceiverAddress_Yes_or_No</targetReference>
+        </connector>
+        <object>AcctSeedERP__Purchase_Order__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

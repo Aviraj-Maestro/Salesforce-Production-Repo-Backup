@@ -1,0 +1,14 @@
+.slds-modal__container{
+    width: 90% !important;
+    max-width: 90% !important;
+}
+
+.slds-custom_content{
+    height: calc(100vh - 255px);
+}
+
+.slds-custom_fieldpadding{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}

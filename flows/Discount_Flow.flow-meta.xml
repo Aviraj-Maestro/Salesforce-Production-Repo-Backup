@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Check_Discount_Category</name>
+        <label>Check Discount Category</label>
+        <locationX>334</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Per_SKU</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Discount_Catergory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Per SKU</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>perSKU_Discount</targetReference>
+            </connector>
+            <label>Per SKU</label>
+        </rules>
+        <rules>
+            <name>Value</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Discount_Catergory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>% Value</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Value_Discount</targetReference>
+            </connector>
+            <label>% Value</label>
+        </rules>
+        <rules>
+            <name>Flat_Rate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Discount_Catergory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Flat Rate</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Flat_Rate_Discount</targetReference>
+            </connector>
+            <label>Flat Rate</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>Discount_percentValue</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Discount_Mapping.Discount_Value__c} * {!$Record.UnitPrice} * {!$Record.Quantity}/ 100</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Discount_perSKU</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Discount_Mapping.Discount_Value__c} * {!$Record.Quantity}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountValue_FlatRate</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Discount_Mapping.Discount_Value__c} * 100 / {!$Record.UnitPrice}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountValue_percent</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Discount_Mapping.Discount_Value__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountValue_perSKU</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Discount_Mapping.Discount_Value__c} * 100 / {!$Record.UnitPrice}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>NetSellingPrice_percent</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.UnitPrice} - ({!$Record.UnitPrice} * {!Get_Discount_Mapping.Discount_Value__c} / 100)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>NetSellingPrice_perSKU</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.UnitPrice} - {!Get_Discount_Mapping.Discount_Value__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>SalesPrice</name>
+        <dataType>Number</dataType>
+        <expression>IF({!Get_FET_Rate.FET_Rate__c}!= NULL,{!$Record.UnitPrice} + {!Get_FET_Rate.FET_Rate__c},{!$Record.UnitPrice})</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Discount Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Discount Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Discount_Mapping</name>
+        <label>Get Discount Mapping</label>
+        <locationX>169</locationX>
+        <locationY>274</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_FET_Rate</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Discount_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Discount_Type__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Discount_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_FET_Rate</name>
+        <label>Get FET Rate</label>
+        <locationX>177</locationX>
+        <locationY>545</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Discount_Category</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Product2Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product2</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Flat_Rate_Discount</name>
+        <label>Flat Rate Discount</label>
+        <locationX>466</locationX>
+        <locationY>443</locationY>
+        <inputAssignments>
+            <field>Discount</field>
+            <value>
+                <elementReference>DiscountValue_FlatRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_Value__c</field>
+            <value>
+                <elementReference>Get_Discount_Mapping.Discount_Value__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>perSKU_Discount</name>
+        <label>perSKU Discount</label>
+        <locationX>461</locationX>
+        <locationY>120</locationY>
+        <inputAssignments>
+            <field>Discount</field>
+            <value>
+                <elementReference>DiscountValue_perSKU</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_Value__c</field>
+            <value>
+                <elementReference>Discount_perSKU</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Value_Discount</name>
+        <label>% Value Discount</label>
+        <locationX>685</locationX>
+        <locationY>281</locationY>
+        <inputAssignments>
+            <field>Discount</field>
+            <value>
+                <elementReference>DiscountValue_percent</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_Value__c</field>
+            <value>
+                <elementReference>Discount_percentValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>43</locationX>
+        <locationY>39</locationY>
+        <connector>
+            <targetReference>Get_Discount_Mapping</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Discount_Catergory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Per SKU</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Discount_Catergory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>% Value</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Discount_Catergory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Flat Rate</stringValue>
+            </value>
+        </filters>
+        <object>QuoteLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

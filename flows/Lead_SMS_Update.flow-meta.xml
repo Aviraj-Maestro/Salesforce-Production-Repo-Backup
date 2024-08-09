@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>Add_Itext_que_with_response</name>
+        <label>Add Itext que with response</label>
+        <locationX>713</locationX>
+        <locationY>833</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Related_Lead.IText_Ans__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AddItextQueResponse</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_SMS_Template_Name_To_Sent_picklist</name>
+        <label>Add SMS Template Name To Sent picklist</label>
+        <locationX>383</locationX>
+        <locationY>591</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Related_Lead.SMS_Sent_Text__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AddSentTemplateName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Itext_Que</name>
+        <label>Assign Itext Que</label>
+        <locationX>890</locationX>
+        <locationY>766</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Related_Lead.Itext_que__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AddItextQueLabel</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lead</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_if_Itext_is_for_incoming_or_Outgoing</name>
+        <label>Check if Itext is for incoming or Outgoing</label>
+        <locationX>783</locationX>
+        <locationY>592</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>check_for_outgoing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Outgoing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Question__r.tdc_tsw__Question_Label__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Question__r.tdc_tsw__Survey__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CheckIfRelatedleadITextSentTextContainsItextQueName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Itext_Que</targetReference>
+            </connector>
+            <label>check for outgoing</label>
+        </rules>
+        <rules>
+            <name>Check_For_Incoming</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Incoming</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Question__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Survey_Response__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Question_Label__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Response_Received__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CheckIfRelatedleadITextAnsTextContainsItextAns</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Itext_que_with_response</targetReference>
+            </connector>
+            <label>Check For Incoming</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_If_its_simple_SMS_History_Or_Itext_Journey_SMS_History</name>
+        <label>Check If - its simple SMS History Or Itext Journey SMS History</label>
+        <locationX>619</locationX>
+        <locationY>531</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Itext_Journey_Template</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Question__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__Survey_Response__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_if_Itext_is_for_incoming_or_Outgoing</targetReference>
+            </connector>
+            <label>Itext Journey Template</label>
+        </rules>
+        <rules>
+            <name>Simple_SMS_Template</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.tdc_tsw__SMS_Template__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Outgoing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CheckIfRelatedleadSentTextContainsSMSTemplateName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_SMS_Template_Name_To_Sent_picklist</targetReference>
+            </connector>
+            <label>Simple SMS Template</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AddItextQueLabel</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__Question__c})) , 
+      IF(ISBLANK({!Get_Related_Lead.Itext_que__c}), 
+       &quot;Survey -&quot;  +{!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name} +&quot;:   Que - &quot;+
+           {!$Record.tdc_tsw__Question__r.tdc_tsw__Question_Label__c}, 
+           {!Get_Related_Lead.Itext_que__c}+ &quot; &lt;br/&gt;&quot;+&quot;  : : Survey -&quot;  +{!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name} +&quot;:   Que - &quot;+ {!$Record.tdc_tsw__Question__r.tdc_tsw__Question_Label__c}
+        ), 
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AddItextQueResponse</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__Survey_Response__c})) , 
+      IF(ISBLANK({!Get_Related_Lead.IText_Ans__c}), 
+
+
+       &quot;Survey -&quot;+  {!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name}+&quot;:   Que - &quot;+
+           {!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Question_Label__c}+&quot;:  Ans - &quot;+{!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Response_Received__c}, 
+            {!Get_Related_Lead.IText_Ans__c}+&quot; &lt;br/&gt;&quot;+&quot;  : : Survey -&quot;+  {!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name}+&quot;:   Que - &quot;+ {!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Question_Label__c}+&quot;:  Ans - &quot;+{!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Response_Received__c}
+        ), 
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AddSentTemplateName</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__SMS_Template__c})) , 
+      IF(ISBLANK({!Get_Related_Lead.SMS_Sent_Text__c}), 
+            {!$Record.tdc_tsw__SMS_Template__r.Name}, 
+          {!Get_Related_Lead.SMS_Sent_Text__c}+&quot;   &lt;br&gt; &quot; +{!$Record.tdc_tsw__SMS_Template__r.Name}
+        ), 
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>CheckIfRelatedleadITextAnsTextContainsItextAns</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__Survey_Response__c})) , 
+      IF( CONTAINS({!Get_Related_Lead.Itext_que__c}, &quot;Survey -&quot;+  {!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name}+&quot;:   Que - &quot;+{!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Question_Label__c}+&quot;:  Ans - &quot;+{!$Record.tdc_tsw__Survey_Response__r.tdc_tsw__Response_Received__c}), 
+            true, 
+            false
+        ), 
+    false
+)</expression>
+    </formulas>
+    <formulas>
+        <name>CheckIfRelatedleadITextSentTextContainsItextQueName</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__Question__c})) , 
+      IF( CONTAINS({!Get_Related_Lead.Itext_que__c}, &quot;Survey -&quot;  +{!$Record.tdc_tsw__Question__r.tdc_tsw__Survey__r.Name} +&quot;:   Que - &quot;+{!$Record.tdc_tsw__Question__r.tdc_tsw__Question_Label__c}), 
+            true, 
+            false
+        ), 
+    false
+)</expression>
+    </formulas>
+    <formulas>
+        <description>return true if SMS sent picklist filed on Lead object has value of SMS template name</description>
+        <name>CheckIfRelatedleadSentTextContainsSMSTemplateName</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( 
+    NOT(ISNULL({!$Record.tdc_tsw__SMS_Template__c})) , 
+      IF( CONTAINS({!Get_Related_Lead.SMS_Sent_Text__c}, {!$Record.tdc_tsw__SMS_Template__r.Name}), 
+            true, 
+            false
+        ), 
+    false
+)</expression>
+    </formulas>
+    <interviewLabel>Lead SMS Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead SMS Update v3</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Related_Lead</name>
+        <label>Get Related Lead</label>
+        <locationX>610</locationX>
+        <locationY>357</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_If_its_simple_SMS_History_Or_Itext_Journey_SMS_History</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.tdc_tsw__Related_Object_Id__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Lead</name>
+        <label>Update Lead</label>
+        <locationX>444</locationX>
+        <locationY>755</locationY>
+        <inputReference>Get_Related_Lead</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>476</locationX>
+        <locationY>35</locationY>
+        <connector>
+            <targetReference>Get_Related_Lead</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>tdc_tsw__Related_Object_Id__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>tdc_tsw__Related_Object_Id__c</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>00Q</stringValue>
+            </value>
+        </filters>
+        <object>tdc_tsw__Message__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>LineBreak</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;~&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

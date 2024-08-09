@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>Check_Delivery_Type</name>
+        <label>Check Delivery Type</label>
+        <locationX>644</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Update_ship_to_address_Default1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Store_Pick_Up</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Delivery_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Store Pick up</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Warehouse_type</targetReference>
+            </connector>
+            <label>Store Pick Up</label>
+        </rules>
+        <rules>
+            <name>Door_Delivery</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Delivery_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Door Delivery</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_If_it_Warehouse_Address</targetReference>
+            </connector>
+            <label>Door Delivery</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_If_it_Warehouse_Address</name>
+        <label>Check If it Warehouse Address</label>
+        <locationX>710</locationX>
+        <locationY>455</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_ware_house</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_to_Address__r.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Fontana</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_to_Address__r.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Bakersfield</stringValue>
+                </rightValue>
+            </conditions>
+            <label>If ware house</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Warehouse_type</name>
+        <label>Check Warehouse type</label>
+        <locationX>182</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>Get_Bakersfield_address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_fontana</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Warehouse_Location__r.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Fontana</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_fontana_address</targetReference>
+            </connector>
+            <label>If fontana</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Address Based on Delivery Type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Address Apply Based on Delivery Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Bakersfield_address</name>
+        <label>Get Bakersfield address</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Update_ship_to_address</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Bakersfield Warehouse Address</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account_Adddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_fontana_address</name>
+        <label>Get fontana address</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_ship_to_address</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Fontana Warehouse Address</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account_Adddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Update_ship_to_address</name>
+        <label>Copy 1 of Update ship to address</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <inputAssignments>
+            <field>Ship_to_Address__c</field>
+            <value>
+                <elementReference>Get_Bakersfield_address.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_ship_to_address</name>
+        <label>Update ship to address</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <inputAssignments>
+            <field>Ship_to_Address__c</field>
+            <value>
+                <elementReference>Get_fontana_address.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_ship_to_address_Default1</name>
+        <label>Update ship to address</label>
+        <locationX>1106</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>Ship_to_Address__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>518</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Delivery_Type</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

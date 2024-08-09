@@ -1,0 +1,110 @@
+<template>
+    <lightning-modal-header class="slds-text-heading_large" label="Additional Account Address"></lightning-modal-header>
+    <lightning-modal-body>
+        <template if:true={showFirstScreen}>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+            </template>
+            
+            <template if:true={errorMessage}>
+                <div class="slds-text-heading_small slds-notify_alert slds-alert_error">{errorMessage}</div>
+            </template>
+            <template for:each={fieldNames} for:item="field">
+                <lightning-layout key={field.label}>
+                    <lightning-layout-item size="6">
+                        <lightning-input type="text" class="slds-text-heading_small" name={field.label} label={field.value} value={field.fieldValue} required={field.required}></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item class="slds-m-left_small" size="6">
+                        <lightning-input type="text" class="slds-text-heading_small" name={field.label1} label={field.value1} value={field.fieldValue1} required={field.required1}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </template>
+
+        <template if:true={showSuccessSecondScreen}>
+            <template if:true={errorMessage}>
+                <div class="slds-text-heading_small slds-notify_alert slds-alert_error">{errorMessage}</div>
+            </template>
+            <lightning-layout>
+                <lightning-layout-item size="7">
+                    <div class="slds-text-heading_large">Validation results</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="2">
+                    <div class="slds-text-title_bold slds-text-title_caps slds-m-top_medium">Address</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="3">
+                    <lightning-formatted-text class="slds-text-heading_small" value={addressResult.originalAddress}></lightning-formatted-text>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="2">
+                    <div class="slds-text-title_bold slds-text-title_caps slds-m-top_medium slds-text-heading_small">Validated as</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="3">
+                    <lightning-formatted-text class="slds-text-heading_small" value={addressResult.validatedAddress}></lightning-formatted-text>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+        <template if:true={showErrorSecondScreen}>
+            <template if:true={errorMessage}>
+                <div class="slds-text-heading_small slds-notify_alert slds-alert_error">{errorMessage}</div>
+            </template>
+            <lightning-layout>
+                <lightning-layout-item size="8">
+                    <div class="slds-text-heading_large">We couldn't find the address you entered</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="6">
+                    <div class="slds-m-top_medium slds-text-heading_small">Go back and fix the address, or use this one anyway</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="2">
+                    <div class="slds-text-title_bold slds-text-title_caps slds-m-top_medium">Address</div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="3">
+                    <lightning-formatted-text class="slds-text-heading_small" value={addressResult.originalAddress}></lightning-formatted-text>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <lightning-textarea class="slds-text-heading_small" name="failedResponse" disabled value={addressResult.validatedAddress} label=""></lightning-textarea>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <template if:true={showFirstScreen}>
+            <lightning-button variant="brand" name="validate" label="Validate Address" onclick={setAccountAdditionalAddress} ></lightning-button>
+        </template>
+        <template if:true={showSuccessSecondScreen}>
+            <lightning-button variant="brand" name="validatedAddress" label="Use validated address" onclick={setAccountAdditionalAddress}></lightning-button>
+            &nbsp;
+            <lightning-button variant="base" name="originalAddress" label="Keep original address" onclick={setAccountAdditionalAddress}></lightning-button>
+        </template>
+        <template if:true={showErrorSecondScreen}>
+            <lightning-button variant="brand" name="fixAddress" label="I'll fix the address" onclick={setAccountAdditionalAddress}></lightning-button>
+            &nbsp;
+            <lightning-button variant="base" name="originalAddress" label="Use this address anyway" onclick={setAccountAdditionalAddress}></lightning-button>
+        </template>
+    </lightning-modal-footer>
+</template>
