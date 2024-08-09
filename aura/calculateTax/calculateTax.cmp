@@ -1,0 +1,8 @@
+<aura:component controller="CalculateTax"  implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,force:hasSObjectName" access="global">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="exampleHolder">
+        <lightning:spinner variant="brand" class="lightningSpinner" alternativeText="Loading" size="large" />
+    </div>
+</aura:component>

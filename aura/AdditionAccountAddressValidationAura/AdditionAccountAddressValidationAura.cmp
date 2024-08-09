@@ -1,0 +1,8 @@
+<aura:component implements="lightning:actionOverride,lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:handler value="{!this}" name="init" action="{!c.onLoadFunction}"/>
+    <aura:attribute type="String" name="parentRecordId"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChanged}" />
+    
+    <c:additionalAccountAddressValidationLWC aura:id="newrecord" currentRecordId="{!v.parentRecordId}"/>
+    
+</aura:component>
