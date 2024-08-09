@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__AP_Payment_Method__c</fullName>
+    <deprecated>false</deprecated>
+    <description>System field used for determining payment method used.</description>
+    <formula>IF(ISBLANK(AcctSeed__Vendor__c) , false, true)</formula>
+    <label>AP Payment Method</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

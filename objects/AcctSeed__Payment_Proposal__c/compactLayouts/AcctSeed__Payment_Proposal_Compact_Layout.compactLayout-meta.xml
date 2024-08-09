@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Payment_Proposal_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>AcctSeed__Search_for_Payables_to_Pay__c</fields>
+    <fields>AcctSeed__Total__c</fields>
+    <fields>AcctSeed__Total_Processed__c</fields>
+    <fields>AcctSeed__Total_Failed__c</fields>
+    <label>Payment Proposal Compact Layout</label>
+</CompactLayout>

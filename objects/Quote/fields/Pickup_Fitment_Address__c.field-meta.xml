@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pickup_Fitment_Address__c</fullName>
+    <label>Pickup/Fitment Address</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fontana Warehouse #38</fullName>
+                <default>false</default>
+                <label>Fontana Warehouse #38</label>
+            </value>
+            <value>
+                <fullName>Fontana Warehouse #41</fullName>
+                <default>false</default>
+                <label>Fontana Warehouse #41</label>
+            </value>
+            <value>
+                <fullName>Bakersfield, CA</fullName>
+                <default>false</default>
+                <label>Bakersfield, CA</label>
+            </value>
+            <value>
+                <fullName>Jaipur</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Jaipur</label>
+            </value>
+            <value>
+                <fullName>Pickup Location - Delhi</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pickup Location - Delhi</label>
+            </value>
+            <value>
+                <fullName>Pickup Location - Gurgaon</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pickup Location - Gurgaon</label>
+            </value>
+            <value>
+                <fullName>Pickup Location - Noida</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pickup Location - Noida</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

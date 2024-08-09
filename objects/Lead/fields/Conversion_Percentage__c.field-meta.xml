@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conversion_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <formula>(CASE( Fleet_Size_Up__c , &quot;Less than 5&quot;,10, &quot;6 to 50&quot;, 20,&quot;51 to 100&quot;,30,&quot;more than 100&quot;, 50,0) +  
+CASE( Fleet_Type__c , &quot;Truck/Trailer&quot;, 10,&quot;Oil Tankers&quot;,5,&quot;Others&quot;,0,0) +
+CASE( Monthly_Consumption_of_Tyres__c , &quot;Less than 50(Retail)&quot;, 10, &quot;Less than 100&quot;, 15,&quot;101 to 200&quot;,20,&quot;more than 200&quot;,25,0) +
+CASE( Decision_maker__c , &quot;Yes&quot;, 10, &quot;No&quot;, 5,0) +
+CASE( Capable_of_Buying_Container__c , &quot;Yes&quot;, 5, &quot;No&quot;, 0,0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Conversion Percentage</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

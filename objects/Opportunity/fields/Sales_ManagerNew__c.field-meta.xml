@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_ManagerNew__c</fullName>
+    <label>Sales Manager</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SM1</fullName>
+                <default>false</default>
+                <label>SM1</label>
+            </value>
+            <value>
+                <fullName>SM2</fullName>
+                <default>false</default>
+                <label>SM2</label>
+            </value>
+            <value>
+                <fullName>SM3</fullName>
+                <default>false</default>
+                <label>SM3</label>
+            </value>
+            <value>
+                <fullName>SM4</fullName>
+                <default>false</default>
+                <label>SM4</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

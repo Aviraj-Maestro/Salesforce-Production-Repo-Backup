@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__Retry_Count__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Number of times this FRUP entry has been retried for synchronizing permissions to Box</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of times this FRUP entry has been retried for synchronizing permissions to Box</inlineHelpText>
+    <label>Retry Count</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

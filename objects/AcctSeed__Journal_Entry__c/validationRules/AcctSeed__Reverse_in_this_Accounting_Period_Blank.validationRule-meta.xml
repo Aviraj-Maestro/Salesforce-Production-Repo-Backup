@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Reverse_in_this_Accounting_Period_Blank</fullName>
+    <active>true</active>
+    <description>If the ‘Auto-Reverse’ checkbox is checked, then the ‘Reverse in this Accounting Period’ lookup cannot be blank on update.</description>
+    <errorConditionFormula>NOT(ISNEW()) &amp;&amp;  AcctSeed__Auto_Reverse__c = true  &amp;&amp;  ISBLANK(AcctSeed__Reverse_Accounting_Period__c)</errorConditionFormula>
+    <errorDisplayField>AcctSeed__Reverse_Accounting_Period__c</errorDisplayField>
+    <errorMessage>The ‘Reverse in this Accounting Period’ cannot be blank when the ‘Auto-Reverse’ checkbox is checked.</errorMessage>
+</ValidationRule>

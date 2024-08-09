@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_sent_checkbox</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;opportunity&quot;,AND(
+OR(
+ISPICKVAL(StageName,&apos;Proposal / Customer Evaluation&apos;),ISPICKVAL(StageName,&apos;Negotiation&apos;),ISPICKVAL(StageName,&apos;Quotation Closed&apos;),ISPICKVAL(StageName,&apos;Closed Won&apos;),ISPICKVAL(StageName,&apos;Closed Lost&apos;)),Email_Sent__c=false))</errorConditionFormula>
+    <errorMessage>Please send Catalogues/Brochures/Documents to the customers via Email.</errorMessage>
+</ValidationRule>

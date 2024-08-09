@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_to_Address_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Delivery_Type__c , &quot;Door Delivery&quot;) ,   ISBLANK (  Ship_to_Address__c ) )</errorConditionFormula>
+    <errorDisplayField>Ship_to_Address__c</errorDisplayField>
+    <errorMessage>Please review the following field and enter correct door delivery address.</errorMessage>
+</ValidationRule>

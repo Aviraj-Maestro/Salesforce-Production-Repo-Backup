@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ware_House_Field_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Delivery_Type__c , &quot;Store Pick up&quot;) , ISBLANK( Warehouse_Location__c) )</errorConditionFormula>
+    <errorDisplayField>Warehouse_Location__c</errorDisplayField>
+    <errorMessage>When Delivery Type is Store Pick Up then Ware house Location will Mandatory</errorMessage>
+</ValidationRule>

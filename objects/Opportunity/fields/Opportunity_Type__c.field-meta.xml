@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Type__c</fullName>
+    <label>Opportunity Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Maestro</fullName>
+                <default>false</default>
+                <label>Maestro</label>
+            </value>
+            <value>
+                <fullName>Dropship</fullName>
+                <default>false</default>
+                <label>Dropship</label>
+            </value>
+            <value>
+                <fullName>Factory to Customer</fullName>
+                <default>false</default>
+                <label>Factory to Customer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

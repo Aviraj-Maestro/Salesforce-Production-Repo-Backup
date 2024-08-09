@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FaxValidation_Contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( Fax )),NOT(REGEX( Fax , &quot;(\\d){10}&quot;) )
+)</errorConditionFormula>
+    <errorDisplayField>Fax</errorDisplayField>
+    <errorMessage>Please enter 10 digit Fax</errorMessage>
+</ValidationRule>

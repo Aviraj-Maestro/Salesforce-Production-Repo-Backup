@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Cleared_Disbursements__c</fullName>
+    <defaultValue>0</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Shall sum the total cleared cash disbursements and credit journal entry lines on the associated bank reconciliation record.</description>
+    <inlineHelpText>The sum of the cleared outgoing funds (bank) or charges (credit card) on this bank reconciliation. This includes all cleared cash disbursements and credit journal entry lines.</inlineHelpText>
+    <label>Cleared Payments</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

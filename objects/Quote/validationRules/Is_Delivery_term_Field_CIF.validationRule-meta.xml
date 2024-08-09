@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Delivery_term_Field_CIF</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Delivery_Terms__c , &quot;CIF&quot;) , OR (ISBLANK(   Freight_charges__c  ) , ISBLANK( Insurance_Amount__c ) ))</errorConditionFormula>
+    <errorMessage>IF Delivery Terms is CIF then Freight and Insurance Amount is mandatory</errorMessage>
+</ValidationRule>

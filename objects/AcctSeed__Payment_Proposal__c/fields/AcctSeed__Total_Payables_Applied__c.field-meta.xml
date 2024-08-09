@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Total_Payables_Applied__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Total amount from Payables applied</inlineHelpText>
+    <label>Payables Total</label>
+    <summarizedField>AcctSeed__Payment_Proposal_Line__c.AcctSeed__Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>AcctSeed__Payment_Proposal_Line__c.AcctSeed__Is_Credit__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AcctSeed__Payment_Proposal_Line__c.AcctSeed__Is_Parent__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>AcctSeed__Payment_Proposal_Line__c.AcctSeed__Payment_Proposal__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

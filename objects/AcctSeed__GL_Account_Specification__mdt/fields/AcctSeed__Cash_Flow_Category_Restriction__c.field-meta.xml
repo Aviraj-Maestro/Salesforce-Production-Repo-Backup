@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Cash_Flow_Category_Restriction__c</fullName>
+    <deprecated>false</deprecated>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Cash Flow Category Restriction</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Restriction</fullName>
+                <default>true</default>
+                <label>No Restriction</label>
+            </value>
+            <value>
+                <fullName>Must be Cash Flow Category</fullName>
+                <default>false</default>
+                <label>Must be Cash Flow Category</label>
+            </value>
+            <value>
+                <fullName>Must NOT be Cash Flow Category</fullName>
+                <default>false</default>
+                <label>Must NOT be Cash Flow Category</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

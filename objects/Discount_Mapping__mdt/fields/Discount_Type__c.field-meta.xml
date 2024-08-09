@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Type__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Discount Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Volume</fullName>
+                <default>true</default>
+                <label>Volume</label>
+            </value>
+            <value>
+                <fullName>Container</fullName>
+                <default>false</default>
+                <label>Container</label>
+            </value>
+            <value>
+                <fullName>Inventory-Specific</fullName>
+                <default>false</default>
+                <label>Inventory-Specific</label>
+            </value>
+            <value>
+                <fullName>Bulk</fullName>
+                <default>false</default>
+                <label>Bulk</label>
+            </value>
+            <value>
+                <fullName>Promotional</fullName>
+                <default>false</default>
+                <label>Promotional</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Settlement/Adjustment</fullName>
+                <default>false</default>
+                <label>Settlement/Adjustment</label>
+            </value>
+            <value>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+                <label>Seasonal</label>
+            </value>
+            <value>
+                <fullName>Loyalty Program</fullName>
+                <default>false</default>
+                <label>Loyalty Program</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

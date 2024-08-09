@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Used in approvals and invoices that are in process of being finalized. A posted status indicates the invoice is final and no further changes are to be made.</inlineHelpText>
+    <label>Posting Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Process</fullName>
+                <default>false</default>
+                <label>In Process</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>true</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Posted</fullName>
+                <default>false</default>
+                <label>Posted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

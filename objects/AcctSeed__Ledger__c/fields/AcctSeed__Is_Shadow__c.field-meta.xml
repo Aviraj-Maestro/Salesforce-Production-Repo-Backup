@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Is_Shadow__c</fullName>
+    <deprecated>false</deprecated>
+    <formula>AND(NOT(ISBLANK(AcctSeed__Related_Ledger__c)), ISPICKVAL(AcctSeed__Accounting_Method__c , &apos;Cash&apos;),  ISPICKVAL(AcctSeed__Related_Ledger__r.AcctSeed__Accounting_Method__c, &apos;Accrual and Cash&apos;) )</formula>
+    <label>Is Shadow</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

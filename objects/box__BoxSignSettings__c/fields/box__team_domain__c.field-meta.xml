@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__team_domain__c</fullName>
+    <defaultValue>&quot;https://signrequest.com&quot;</defaultValue>
+    <deprecated>false</deprecated>
+    <label>team domain</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

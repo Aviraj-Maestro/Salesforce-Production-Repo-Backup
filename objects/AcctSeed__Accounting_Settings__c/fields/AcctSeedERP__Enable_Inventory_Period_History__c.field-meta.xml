@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeedERP__Enable_Inventory_Period_History__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>When this is enabled ‘On’, Inventory History records are generated when an accounting period is closed or soft closed. When this field is toggled ‘Off’, these records will need to be generated manually.</inlineHelpText>
+    <label>Enable Inventory Period History</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

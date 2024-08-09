@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Adjustment_Amount__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Amount adjusted in the cash application process. Typically a write off of a billing balance or payment discount.</inlineHelpText>
+    <label>Adjustment Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

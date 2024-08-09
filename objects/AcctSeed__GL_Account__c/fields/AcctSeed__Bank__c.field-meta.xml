@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Bank__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Select if the GL Account is used to record incoming funds (Cash Receipts or Journal Entry) and outgoing funds (Cash Disbursements or Journal Entry). Only GL Accounts of this type can be used in Bank Direct Connect and Bank Reconciliations.</inlineHelpText>
+    <label>Bank/Credit Card Account</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

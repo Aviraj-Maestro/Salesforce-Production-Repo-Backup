@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FET_Type__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>FET Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FET 14PR</fullName>
+                <default>true</default>
+                <label>FET 14PR</label>
+            </value>
+            <value>
+                <fullName>FET 16PR</fullName>
+                <default>false</default>
+                <label>FET 16PR</label>
+            </value>
+            <value>
+                <fullName>FET 16PR-11R22.5</fullName>
+                <default>false</default>
+                <label>FET 16PR-11R22.5</label>
+            </value>
+            <value>
+                <fullName>FET 14PR-11R24.5</fullName>
+                <default>false</default>
+                <label>FET 14PR-11R24.5</label>
+            </value>
+            <value>
+                <fullName>FET 20PR-445/50R22.5</fullName>
+                <default>false</default>
+                <label>FET 20PR-445/50R22.5</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

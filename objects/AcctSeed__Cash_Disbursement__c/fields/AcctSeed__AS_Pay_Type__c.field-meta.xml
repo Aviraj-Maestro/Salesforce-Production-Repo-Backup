@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__AS_Pay_Type__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>This field is applicable to Accounting Seed Payment Services and will display the available payment types. It will default to the preferred payment type on the Vendor Account record.</inlineHelpText>
+    <label>Payment Services Type Override</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>AcctSeed__AS_Pay_Type</valueSetName>
+    </valueSet>
+</CustomField>

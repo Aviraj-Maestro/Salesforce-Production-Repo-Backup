@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Ready_for_Payment</fullName>
+    <columns>NAME</columns>
+    <columns>AcctSeed__Payee__c</columns>
+    <columns>AcctSeed__Accounting_Period__c</columns>
+    <columns>AcctSeed__Date__c</columns>
+    <columns>AcctSeed__Due_Date__c</columns>
+    <columns>AcctSeed__Status__c</columns>
+    <columns>AcctSeed__Payment_Status__c</columns>
+    <columns>AcctSeed__Type__c</columns>
+    <columns>AcctSeed__Total__c</columns>
+    <columns>AcctSeed__Balance__c</columns>
+    <columns>AcctSeed__Age__c</columns>
+    <columns>AcctSeed__Payee_Reference__c</columns>
+    <columns>AcctSeed__Ledger__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>AcctSeed__Status__c</field>
+        <operation>notEqual</operation>
+        <value>In Process,Approved</value>
+    </filters>
+    <filters>
+        <field>AcctSeed__Payment_Status__c</field>
+        <operation>equals</operation>
+        <value>Unpaid</value>
+    </filters>
+    <filters>
+        <field>AcctSeed__Type__c</field>
+        <operation>equals</operation>
+        <value>Invoice</value>
+    </filters>
+    <label>Ready for Payment</label>
+</ListView>

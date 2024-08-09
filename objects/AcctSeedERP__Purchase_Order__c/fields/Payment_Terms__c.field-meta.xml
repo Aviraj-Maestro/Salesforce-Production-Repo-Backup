@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms__c</fullName>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>100% Advance</fullName>
+                <default>false</default>
+                <label>100% Advance</label>
+            </value>
+            <value>
+                <fullName>30 + 70</fullName>
+                <default>false</default>
+                <label>30 + 70</label>
+            </value>
+            <value>
+                <fullName>50 + 50</fullName>
+                <default>false</default>
+                <label>50 + 50</label>
+            </value>
+            <value>
+                <fullName>Due on Receipt</fullName>
+                <default>false</default>
+                <label>Due on Receipt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

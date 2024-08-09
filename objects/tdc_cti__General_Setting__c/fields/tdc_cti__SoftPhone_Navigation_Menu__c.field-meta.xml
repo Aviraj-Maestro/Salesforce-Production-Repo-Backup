@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tdc_cti__SoftPhone_Navigation_Menu__c</fullName>
+    <deprecated>false</deprecated>
+    <description>This field is used to store softphone navigation icon values like Home,DialPad,Call Logs,Inbox,Settings.</description>
+    <label>SoftPhone Navigation Menu</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

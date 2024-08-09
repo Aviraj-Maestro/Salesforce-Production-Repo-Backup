@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_or_Account_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>(RecordType.Name == &apos;Unplanned Event&apos; &amp;&amp; ISBLANK(Lead__c)) &amp;&amp; (RecordType.Name == &apos;Unplanned Event&apos; &amp;&amp; ISBLANK( Related_to_Customer__c ))</errorConditionFormula>
+    <errorMessage>Please fill either Lead or Related To(Customer) field.</errorMessage>
+</ValidationRule>

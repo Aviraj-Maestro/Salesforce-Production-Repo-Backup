@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Default_Payment_Services_Ledger__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <inlineHelpText>The primary ledger for Payment Services.</inlineHelpText>
+    <label>Default Payment Services Ledger</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>AcctSeed__Ledger__c.AcctSeed__Type__c</field>
+            <operation>equals</operation>
+            <value>Transactional</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AcctSeed__Ledger__c</referenceTo>
+    <relationshipLabel>Accounting Settings (Default Payment Services Ledger)</relationshipLabel>
+    <relationshipName>Payment_Services_Default</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

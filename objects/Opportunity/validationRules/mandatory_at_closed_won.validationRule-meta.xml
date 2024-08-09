@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mandatory_at_closed_won</fullName>
+    <active>true</active>
+    <description>Filling receiving contact is necessary at closed won</description>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;opportunity&quot;,ISPICKVAL(StageName,&apos;Closed Won&apos;)&amp;&amp; ISBLANK( Receiving_Contact__c ))</errorConditionFormula>
+    <errorDisplayField>Receiving_Contact__c</errorDisplayField>
+    <errorMessage>Please Enter Receiving Contact under Receiving Person Details Section.</errorMessage>
+</ValidationRule>

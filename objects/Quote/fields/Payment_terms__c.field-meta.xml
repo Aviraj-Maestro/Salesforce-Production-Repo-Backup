@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_terms__c</fullName>
+    <label>Payment terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CHA_Service__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>100% Advance</fullName>
+                <default>false</default>
+                <label>100% Advance</label>
+            </value>
+            <value>
+                <fullName>30 + 70</fullName>
+                <default>false</default>
+                <label>30 + 70</label>
+            </value>
+            <value>
+                <fullName>50 + 50</fullName>
+                <default>false</default>
+                <label>50 + 50</label>
+            </value>
+            <value>
+                <fullName>Due on Receipt</fullName>
+                <default>false</default>
+                <label>Due on Receipt</label>
+            </value>
+            <value>
+                <fullName>Advance</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Advance</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Part Payment</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Part Payment</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Maestro</controllingFieldValue>
+            <valueName>30 + 70</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Maestro</controllingFieldValue>
+            <valueName>50 + 50</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Maestro</controllingFieldValue>
+            <valueName>Due on Receipt</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non- Maestro</controllingFieldValue>
+            <valueName>100% Advance</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

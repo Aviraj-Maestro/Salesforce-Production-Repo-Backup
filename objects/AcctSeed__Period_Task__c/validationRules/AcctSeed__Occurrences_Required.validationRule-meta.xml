@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Occurrences_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(ISPICKVAL(AcctSeed__Ends_On__c, &apos;Number of Occurrences&apos;), ISNULL(AcctSeed__Number_of_Occurrences__c)), true, false)</errorConditionFormula>
+    <errorMessage>Accounting Period Task: Please enter the Number of Occurrences.</errorMessage>
+</ValidationRule>

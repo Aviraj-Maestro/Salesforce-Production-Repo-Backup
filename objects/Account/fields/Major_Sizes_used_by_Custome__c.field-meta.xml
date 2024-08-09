@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Major_Sizes_used_by_Custome__c</fullName>
+    <label>Major Sizes used by Customer</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>11R22.5</fullName>
+                <default>false</default>
+                <label>11R22.5</label>
+            </value>
+            <value>
+                <fullName>11R24.5</fullName>
+                <default>false</default>
+                <label>11R24.5</label>
+            </value>
+            <value>
+                <fullName>255/75R22.5</fullName>
+                <default>false</default>
+                <label>255/75R22.5</label>
+            </value>
+            <value>
+                <fullName>285/75R24.5</fullName>
+                <default>false</default>
+                <label>285/75R24.5</label>
+            </value>
+            <value>
+                <fullName>295/75R22.5</fullName>
+                <default>false</default>
+                <label>295/75R22.5</label>
+            </value>
+            <value>
+                <fullName>315/80R22.5</fullName>
+                <default>false</default>
+                <label>315/80R22.5</label>
+            </value>
+            <value>
+                <fullName>385/65R22.5</fullName>
+                <default>false</default>
+                <label>385/65R22.5</label>
+            </value>
+            <value>
+                <fullName>425/65R22.5</fullName>
+                <default>false</default>
+                <label>425/65R22.5</label>
+            </value>
+            <value>
+                <fullName>445/50R22.5</fullName>
+                <default>false</default>
+                <label>445/50R22.5</label>
+            </value>
+            <value>
+                <fullName>Any other sizes</fullName>
+                <default>false</default>
+                <label>Any other sizes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

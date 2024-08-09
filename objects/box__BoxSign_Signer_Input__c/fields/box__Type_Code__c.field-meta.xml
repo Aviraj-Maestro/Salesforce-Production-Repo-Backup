@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__Type_Code__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Code for the input type: &apos;s&apos; (signature input), &apos;t&apos; (text input), &apos;d&apos; (date input) or &apos;c&apos; (checkbox input)</description>
+    <externalId>false</externalId>
+    <label>Type Code</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

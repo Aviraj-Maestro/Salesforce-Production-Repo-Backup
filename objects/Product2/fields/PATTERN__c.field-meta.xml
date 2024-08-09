@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PATTERN__c</fullName>
+    <label>Pattern</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>HIGHWAY D12</fullName>
+                <default>false</default>
+                <label>Highway D12</label>
+            </value>
+            <value>
+                <fullName>HIGHWAY D16</fullName>
+                <default>false</default>
+                <label>Highway D16</label>
+            </value>
+            <value>
+                <fullName>HIGHWAY D21</fullName>
+                <default>false</default>
+                <label>Highway D21</label>
+            </value>
+            <value>
+                <fullName>HIGHWAY S12</fullName>
+                <default>false</default>
+                <label>Highway S12</label>
+            </value>
+            <value>
+                <fullName>HIGHWAY S21</fullName>
+                <default>false</default>
+                <label>Highway S21</label>
+            </value>
+            <value>
+                <fullName>REGIONAL S12</fullName>
+                <default>false</default>
+                <label>Regional S12</label>
+            </value>
+            <value>
+                <fullName>REGIONAL S21</fullName>
+                <default>false</default>
+                <label>Regional S21</label>
+            </value>
+            <value>
+                <fullName>REGIONAL T12</fullName>
+                <default>false</default>
+                <label>Regional T12</label>
+            </value>
+            <value>
+                <fullName>HIGHWAY T21</fullName>
+                <default>false</default>
+                <label>HIGHWAY T21</label>
+            </value>
+            <value>
+                <fullName>ASR79</fullName>
+                <default>false</default>
+                <label>ASR79</label>
+            </value>
+            <value>
+                <fullName>AT552</fullName>
+                <default>false</default>
+                <label>AT552</label>
+            </value>
+            <value>
+                <fullName>AZ926</fullName>
+                <default>false</default>
+                <label>AZ926</label>
+            </value>
+            <value>
+                <fullName>AT563</fullName>
+                <default>false</default>
+                <label>AT563</label>
+            </value>
+            <value>
+                <fullName>AD778</fullName>
+                <default>false</default>
+                <label>AD778</label>
+            </value>
+            <value>
+                <fullName>AD737</fullName>
+                <default>false</default>
+                <label>AD737</label>
+            </value>
+            <value>
+                <fullName>H89 DRIVE PLUS</fullName>
+                <default>false</default>
+                <label>H89 Drive Plus</label>
+            </value>
+            <value>
+                <fullName>H89 PLUS</fullName>
+                <default>false</default>
+                <label>H89 Plus</label>
+            </value>
+            <value>
+                <fullName>H94 DRIVE</fullName>
+                <default>false</default>
+                <label>H94 Drive</label>
+            </value>
+            <value>
+                <fullName>NEO FUEL D3</fullName>
+                <default>false</default>
+                <label>Neo Fuel D3</label>
+            </value>
+            <value>
+                <fullName>NEO FUEL G3</fullName>
+                <default>false</default>
+                <label>Neo Fuel G3</label>
+            </value>
+            <value>
+                <fullName>NEO FUEL T3</fullName>
+                <default>false</default>
+                <label>Neo Fuel T3</label>
+            </value>
+            <value>
+                <fullName>NEO CONTRUCT G</fullName>
+                <default>false</default>
+                <label>Neo Contruct G</label>
+            </value>
+            <value>
+                <fullName>NEO ALLROADS D+</fullName>
+                <default>false</default>
+                <label>Neo Allroads D+</label>
+            </value>
+            <value>
+                <fullName>NEO ALLROADS S</fullName>
+                <default>false</default>
+                <label>Neo Allroads S</label>
+            </value>
+            <value>
+                <fullName>NEO ALLROADS S+</fullName>
+                <default>false</default>
+                <label>Neo Allroads S+</label>
+            </value>
+            <value>
+                <fullName>NEO ALLROADS T2</fullName>
+                <default>false</default>
+                <label>Neo Allroads T2</label>
+            </value>
+            <value>
+                <fullName>CD884 R3</fullName>
+                <default>false</default>
+                <label>CD884 R3</label>
+            </value>
+            <value>
+                <fullName>CD883 R3</fullName>
+                <default>false</default>
+                <label>CD883 R3</label>
+            </value>
+            <value>
+                <fullName>TR529 R3</fullName>
+                <default>false</default>
+                <label>TR529 R3</label>
+            </value>
+            <value>
+                <fullName>RH652</fullName>
+                <default>false</default>
+                <label>RH652</label>
+            </value>
+            <value>
+                <fullName>ASR30</fullName>
+                <default>false</default>
+                <label>ASR30</label>
+            </value>
+            <value>
+                <fullName>Regional S22</fullName>
+                <default>false</default>
+                <label>Regional S22</label>
+            </value>
+            <value>
+                <fullName>Regional T21</fullName>
+                <default>false</default>
+                <label>Regional T21</label>
+            </value>
+            <value>
+                <fullName>DRC600</fullName>
+                <default>false</default>
+                <label>DRC600</label>
+            </value>
+            <value>
+                <fullName>TRR700</fullName>
+                <default>false</default>
+                <label>TRR700</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

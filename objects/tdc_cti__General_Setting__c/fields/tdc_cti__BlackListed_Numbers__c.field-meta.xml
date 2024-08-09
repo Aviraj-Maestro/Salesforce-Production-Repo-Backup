@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tdc_cti__BlackListed_Numbers__c</fullName>
+    <deprecated>false</deprecated>
+    <description>You can enter multiple numbers comma-separated. Incoming calls from these numbers will not be received and there will be no tracking of such calls in Salesforce.</description>
+    <label>BlackListed Numbers</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

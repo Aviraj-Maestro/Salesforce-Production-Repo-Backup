@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_loss__c</fullName>
+    <label>Reason for loss</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brand_Preference/Origin</fullName>
+                <default>false</default>
+                <label>Brand Preference/Origin</label>
+            </value>
+            <value>
+                <fullName>Customer Issue</fullName>
+                <default>false</default>
+                <label>Customer Issue</label>
+            </value>
+            <value>
+                <fullName>Logistics</fullName>
+                <default>false</default>
+                <label>Logistics</label>
+            </value>
+            <value>
+                <fullName>New Size</fullName>
+                <default>false</default>
+                <label>New Size</label>
+            </value>
+            <value>
+                <fullName>Price/ Payment_Terms</fullName>
+                <default>false</default>
+                <label>Price/ Payment Terms</label>
+            </value>
+            <value>
+                <fullName>Stock_Unavailable/New size</fullName>
+                <default>false</default>
+                <label>Stock Unavailable</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

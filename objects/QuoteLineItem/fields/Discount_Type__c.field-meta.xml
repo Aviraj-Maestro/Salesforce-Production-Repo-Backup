@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Type__c</fullName>
+    <label>Discount Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Discount_Catergory__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Discount_Type</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Per SKU</controllingFieldValue>
+            <valueName>Container</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Per SKU</controllingFieldValue>
+            <valueName>Inventory-Specific</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Per SKU</controllingFieldValue>
+            <valueName>Promotional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Per SKU</controllingFieldValue>
+            <valueName>Loyalty Program</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>% Value</controllingFieldValue>
+            <valueName>Bulk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>% Value</controllingFieldValue>
+            <valueName>Seasonal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Flat Rate</controllingFieldValue>
+            <valueName>Referral</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

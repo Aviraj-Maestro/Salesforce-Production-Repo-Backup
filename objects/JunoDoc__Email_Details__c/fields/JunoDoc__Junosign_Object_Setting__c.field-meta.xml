@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JunoDoc__Junosign_Object_Setting__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <label>Junosign Object Setting</label>
+    <referenceTo>JunoDoc__Junosign_Object_Setting__c</referenceTo>
+    <relationshipLabel>Email Details</relationshipLabel>
+    <relationshipName>Email_Details</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

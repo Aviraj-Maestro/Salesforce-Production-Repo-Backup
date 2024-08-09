@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Auto_Post_Billing_Cash_Receipts__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>If enabled, Billing Cash Receipts are posted when created. When toggled &apos;Off&apos;, you must set up a Scheduled Post job to post them.</inlineHelpText>
+    <label>Billing Cash Receipts</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WhatappPhoneNoValidation_Contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( Whatsapp_no__c)),NOT(REGEX( Whatsapp_no__c, &quot;(\\d){10}&quot;) )
+)</errorConditionFormula>
+    <errorDisplayField>Whatsapp_no__c</errorDisplayField>
+    <errorMessage>Please enter 10 digit Whatsapp Number</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__AP_Payment_Processor__c</fullName>
+    <deprecated>false</deprecated>
+    <formula>IF(ISPICKVAL( AcctSeed__Type__c , &apos;Edenred&apos;), true, false)</formula>
+    <inlineHelpText>Enable this field if the payment processor is Accounts Payable.</inlineHelpText>
+    <label>AP Payment Processor</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Objection__c</fullName>
+    <label>Reason for Objection</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Related to Value</fullName>
+                <default>false</default>
+                <label>Related to Value</label>
+            </value>
+            <value>
+                <fullName>Credit Terms</fullName>
+                <default>false</default>
+                <label>Credit Terms</label>
+            </value>
+            <value>
+                <fullName>Delivery Terms</fullName>
+                <default>false</default>
+                <label>Delivery Terms</label>
+            </value>
+            <value>
+                <fullName>Warranty Terms</fullName>
+                <default>false</default>
+                <label>Warranty Terms</label>
+            </value>
+            <value>
+                <fullName>Service Terms</fullName>
+                <default>false</default>
+                <label>Service Terms</label>
+            </value>
+            <value>
+                <fullName>Other Objections</fullName>
+                <default>false</default>
+                <label>Other Objections</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

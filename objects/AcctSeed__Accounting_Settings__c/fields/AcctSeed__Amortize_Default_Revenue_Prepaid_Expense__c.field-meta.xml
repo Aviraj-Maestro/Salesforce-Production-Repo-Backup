@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Amortize_Default_Revenue_Prepaid_Expense__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Global default to calculate the amount to be amortized. When enabled, the amount to be amortized (UI &amp; API) reflects all billing and payable lines which post to the ‘Default Deferred Revenue GL Account’ and ‘Deferred Expense GL Account’ respectively.</inlineHelpText>
+    <label>Amortize Deferred Revenue/Expense</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

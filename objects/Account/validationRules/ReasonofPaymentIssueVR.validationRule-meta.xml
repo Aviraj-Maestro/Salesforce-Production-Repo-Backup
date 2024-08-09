@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonofPaymentIssueVR</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( Payment_Issues__c , ISBLANK( Payment_Issue_Reason__c ), null  )</errorConditionFormula>
+    <errorMessage>Please Enter Payment Issue Reason.</errorMessage>
+</ValidationRule>

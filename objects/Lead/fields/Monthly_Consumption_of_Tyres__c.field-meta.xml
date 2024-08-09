@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Consumption_of_Tyres__c</fullName>
+    <label>Monthly Consumption of Tyres</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less than 50(Retail)</fullName>
+                <default>false</default>
+                <label>Less than 50 (Retail)</label>
+            </value>
+            <value>
+                <fullName>Less than 100</fullName>
+                <default>false</default>
+                <label>51 to 100/Less than 100</label>
+            </value>
+            <value>
+                <fullName>101 to 200</fullName>
+                <default>false</default>
+                <label>101 to 200</label>
+            </value>
+            <value>
+                <fullName>more than 200</fullName>
+                <default>false</default>
+                <label>more than 200</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

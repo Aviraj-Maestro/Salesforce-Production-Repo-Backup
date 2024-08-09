@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Accrual_and_or_Cash__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Indicate on which Ledger(s) to create and post this record.</inlineHelpText>
+    <label>Accrual and/or Cash</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accrual</fullName>
+                <default>false</default>
+                <label>Accrual</label>
+            </value>
+            <value>
+                <fullName>Cash</fullName>
+                <default>false</default>
+                <label>Cash</label>
+            </value>
+            <value>
+                <fullName>Accrual and Cash</fullName>
+                <default>false</default>
+                <label>Accrual and Cash</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

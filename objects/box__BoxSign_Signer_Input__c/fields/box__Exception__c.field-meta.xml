@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__Exception__c</fullName>
+    <deprecated>false</deprecated>
+    <description>This field is used to describe errors that occur within the Box for Salesforce and Sign integration. For example, during the Salesforce write back (flow template) if it fails to write to the salesforce record, an error should be displayed here.</description>
+    <inlineHelpText>This field is used to describe errors that occur within the Box for Salesforce and Sign integration.</inlineHelpText>
+    <label>Exception</label>
+    <length>500</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

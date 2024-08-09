@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Default_Ledger__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <inlineHelpText>The ledger used for payments that are not associated to a source document.</inlineHelpText>
+    <label>Default Ledger</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Default Ledger on the Payment Processor must be an Active Primary Ledger</errorMessage>
+        <filterItems>
+            <field>AcctSeed__Ledger__c.AcctSeed__Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>AcctSeed__Ledger__c.AcctSeed__Is_Shadow__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AcctSeed__Ledger__c</referenceTo>
+    <relationshipLabel>Payment Processors</relationshipLabel>
+    <relationshipName>Payment_Processors</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

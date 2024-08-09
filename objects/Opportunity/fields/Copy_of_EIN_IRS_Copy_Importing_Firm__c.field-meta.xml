@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_EIN_IRS_Copy_Importing_Firm__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Copy of EIN (IRS Copy) Importing Firm</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

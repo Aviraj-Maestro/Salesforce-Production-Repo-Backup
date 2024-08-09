@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Merchant_GL_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Cardknox only: Must be set to a GL Account with &apos;Bank/Credit Card Account&apos; enabled and cannot be the same as the Bank GL Account.</inlineHelpText>
+    <label>Merchant GL Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>AcctSeed__GL_Account__c.AcctSeed__Bank__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AcctSeed__GL_Account__c</referenceTo>
+    <relationshipLabel>Payment Processors</relationshipLabel>
+    <relationshipName>Merchant_Processors</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

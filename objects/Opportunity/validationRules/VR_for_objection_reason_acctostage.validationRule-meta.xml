@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_for_objection_reason_acctostage</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;opportunity&quot;,AND(
+OR(
+ISPICKVAL(StageName, &quot;Negotiation&quot;),ISPICKVAL(StageName,&quot;Quotation Closed&quot;),
+ISPICKVAL(StageName, &quot;Closed Lost&quot;)
+),
+ISPICKVAL(Reason_for_Objection__c ,&apos;&apos;),  No_Objection_Quote__c = False
+))</errorConditionFormula>
+    <errorDisplayField>Reason_for_Objection__c</errorDisplayField>
+    <errorMessage>Please select a reason for objection</errorMessage>
+</ValidationRule>

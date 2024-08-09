@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__Title__c</fullName>
+    <deprecated>false</deprecated>
+    <externalDeveloperName>Title</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>true</isFilteringDisabled>
+    <isNameField>true</isNameField>
+    <isSortingDisabled>true</isSortingDisabled>
+    <label>Title</label>
+    <length>255</length>
+    <readOnlyProxy>true</readOnlyProxy>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

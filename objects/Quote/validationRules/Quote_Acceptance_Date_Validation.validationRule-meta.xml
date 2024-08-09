@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Acceptance_Date_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Status , &quot;Accepted&quot;) , ISBLANK( Quote_Acceptance_Date__c ) )</errorConditionFormula>
+    <errorDisplayField>Quote_Acceptance_Date__c</errorDisplayField>
+    <errorMessage>When Quote is moved to Closed Won Then Add Quote Acceptance Date</errorMessage>
+</ValidationRule>

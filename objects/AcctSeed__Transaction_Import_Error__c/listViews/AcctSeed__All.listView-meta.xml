@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__All</fullName>
+    <columns>NAME</columns>
+    <columns>AcctSeed__Payment_Processor__c</columns>
+    <columns>AcctSeed__Merchant_Reference__c</columns>
+    <columns>AcctSeed__Amount__c</columns>
+    <columns>AcctSeed__Fee__c</columns>
+    <columns>AcctSeed__Customer__c</columns>
+    <columns>AcctSeed__Type__c</columns>
+    <columns>AcctSeed__Date__c</columns>
+    <columns>AcctSeed__Error__c</columns>
+    <columns>AcctSeed__Billing_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

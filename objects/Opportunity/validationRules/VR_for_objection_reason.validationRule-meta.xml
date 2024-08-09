@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_for_objection_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;opportunity&quot;,AND((ISPICKVAL( Reason_for_Objection__c ,&apos;Related to Value&apos; ) || ISPICKVAL(  Reason_for_Objection__c  , &apos;Credit Terms&apos;) || ISPICKVAL(  Reason_for_Objection__c  , &apos;Delivery Terms&apos;)|| ISPICKVAL(  Reason_for_Objection__c  , &apos;Warranty Terms&apos;)|| ISPICKVAL(  Reason_for_Objection__c  , &apos;Service Terms&apos;)|| ISPICKVAL(  Reason_for_Objection__c  , &apos;Other Objections&apos;)),ISBLANK( Comment_for_Reason_for_objection__c )))</errorConditionFormula>
+    <errorDisplayField>Comment_for_Reason_for_objection__c</errorDisplayField>
+    <errorMessage>Please enter Comment for Reason for objection</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Landed_Cost__c</fullName>
+    <formula>Total_Purchase_Price_1__c + Total_Freight_1__c + Custom_Clearing_Agent__c + Custom_Duty_Charges__c + Local_Transportation__c + Other_Charges_1__c + Other_Charges_2__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Landed Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>6</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

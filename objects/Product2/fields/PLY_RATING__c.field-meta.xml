@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PLY_RATING__c</fullName>
+    <label>Ply Rating</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>14 PR</fullName>
+                <default>false</default>
+                <label>14 PR</label>
+            </value>
+            <value>
+                <fullName>16 PR</fullName>
+                <default>false</default>
+                <label>16 PR</label>
+            </value>
+            <value>
+                <fullName>18 PR</fullName>
+                <default>false</default>
+                <label>18 PR</label>
+            </value>
+            <value>
+                <fullName>20 PR</fullName>
+                <default>false</default>
+                <label>20 PR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

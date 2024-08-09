@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Original_Amount_Mapping__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>The custom field you selected in Cardknox to save the original amount.</inlineHelpText>
+    <label>Original Amount Mapping</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>AcctSeed__Custom_Fields</valueSetName>
+    </valueSet>
+</CustomField>

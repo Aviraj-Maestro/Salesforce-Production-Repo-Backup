@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Accepted_and_Syncing_True</fullName>
+    <active>true</active>
+    <description>Quote will be accepted only if syncing is true</description>
+    <errorConditionFormula>AND(ISPICKVAL( Status , &quot;Accepted&quot;), NOT(IsSyncing = True))</errorConditionFormula>
+    <errorDisplayField>IsSyncing</errorDisplayField>
+    <errorMessage>Please sync or unsync the quote then proceed further.</errorMessage>
+</ValidationRule>

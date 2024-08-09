@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__No_Reversal_Period_for_Auto_Reverse</fullName>
+    <active>true</active>
+    <description>Prompt when the reversal accounting period does not exist and Auto-Reverse is checked.</description>
+    <errorConditionFormula>AcctSeed__Auto_Reverse__c = true  &amp;&amp;  ISBLANK(AcctSeed__Reverse_Accounting_Period__c)</errorConditionFormula>
+    <errorDisplayField>AcctSeed__Reverse_Accounting_Period__c</errorDisplayField>
+    <errorMessage>Unable to set a default - the reversal accounting period does not exist.</errorMessage>
+</ValidationRule>

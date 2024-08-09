@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_for_loss_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &quot;opportunity&quot;,AND((ISPICKVAL(Reason_for_loss__c,&apos;Others&apos; ) ||  ISPICKVAL( Reason_for_loss__c , &apos;Price/ Payment_Terms&apos;) ||  ISPICKVAL( Reason_for_loss__c , &apos;Brand_Preference/Origin&apos;)||  ISPICKVAL( Reason_for_loss__c , &apos;Stock_Unavailable/New size&apos;)||  ISPICKVAL( Reason_for_loss__c , &apos;Logistics&apos;)||  ISPICKVAL( Reason_for_loss__c , &apos;Customer Issue&apos;) ||  ISPICKVAL( Reason_for_loss__c , &apos;New Size&apos;)),ISBLANK(Comment_for_Reason_for_loss__c)))</errorConditionFormula>
+    <errorDisplayField>Comment_for_Reason_for_loss__c</errorDisplayField>
+    <errorMessage>Please enter Comment for Reason for loss.</errorMessage>
+</ValidationRule>

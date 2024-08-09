@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Convenience_Fees_GL_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <inlineHelpText>The GL Account that is set as the Adjustment GL Account on the billing cash receipt for convenience fees or electronic transfer fees.  This is recorded as a negative adjustment on the billing cash receipt.</inlineHelpText>
+    <label>Convenience Fees GL Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>AcctSeed__GL_Account__c.AcctSeed__Type__c</field>
+            <operation>equals</operation>
+            <value>Revenue, Expense</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AcctSeed__GL_Account__c</referenceTo>
+    <relationshipLabel>Payment Processors (Convenience Fees GL Account)</relationshipLabel>
+    <relationshipName>Payment_Processors</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Enable_Convenience_Fees__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>To enable the calculation and processing of convenience fees, check this checkbox once you have enabled convenience or &apos;Electronic transfer&apos; fees in Cardknox.</inlineHelpText>
+    <label>Enable Convenience Fees</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

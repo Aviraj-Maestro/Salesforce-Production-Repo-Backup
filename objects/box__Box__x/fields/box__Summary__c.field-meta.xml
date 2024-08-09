@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>box__Summary__c</fullName>
+    <deprecated>false</deprecated>
+    <externalDeveloperName>Summary</externalDeveloperName>
+    <isFilteringDisabled>true</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>true</isSortingDisabled>
+    <label>Summary</label>
+    <length>500</length>
+    <readOnlyProxy>true</readOnlyProxy>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

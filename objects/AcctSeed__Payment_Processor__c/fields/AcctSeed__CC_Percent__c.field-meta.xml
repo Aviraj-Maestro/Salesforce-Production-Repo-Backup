@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__CC_Percent__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Enter the convenience fee percentage for credit card payments.</inlineHelpText>
+    <label>CC Percent</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

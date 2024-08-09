@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__All</fullName>
+    <columns>NAME</columns>
+    <columns>AcctSeed__Account_Type__c</columns>
+    <columns>AcctSeed__Account_Number__c</columns>
+    <columns>AcctSeed__Routing_Number__c</columns>
+    <columns>AcctSeed__Address__c</columns>
+    <columns>AcctSeed__Payor_Name__c</columns>
+    <columns>AcctSeed__Payor_Email__c</columns>
+    <columns>AcctSeed__Ledger__c</columns>
+    <columns>AcctSeed__Enable_for_Payment_Services__c</columns>
+    <columns>AcctSeed__Payment_Services_Bank_Account_ID__c</columns>
+    <columns>AcctSeed__Payment_Services_Enrollment_Status__c</columns>
+    <columns>AcctSeed__Bank_Fraction__c</columns>
+    <columns>AcctSeed__Signature_Block__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

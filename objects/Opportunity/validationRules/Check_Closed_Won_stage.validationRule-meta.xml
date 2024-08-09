@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Closed_Won_stage</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Opportunity_Type__c , &quot;Factory to Customer&quot;) , OR(W9_Form__c = False , Any_Other_if_required_by_broker__c = False , Power_of_Attorney__c = False, Copy_of_EIN_IRS_Copy_Importing_Firm__c =False ),  ISPICKVAL( StageName , &quot;Closed Won&quot;) )</errorConditionFormula>
+    <errorMessage>All checkbox should be checked before the stage is closed won</errorMessage>
+</ValidationRule>

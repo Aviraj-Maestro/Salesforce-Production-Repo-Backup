@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeedERP__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Select the status the Purchase Order should be updated to.</inlineHelpText>
+    <label>Status</label>
+    <required>true</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Order Creation</fullName>
+                <default>true</default>
+                <label>Order Creation</label>
+            </value>
+            <value>
+                <fullName>Order Processed and Modulation</fullName>
+                <default>false</default>
+                <label>Order Processed and Modulation</label>
+            </value>
+            <value>
+                <fullName>PI Received and Confirmation</fullName>
+                <default>false</default>
+                <label>PI Received and Confirmation</label>
+            </value>
+            <value>
+                <fullName>BL and Documentation</fullName>
+                <default>false</default>
+                <label>BL and Documentation</label>
+            </value>
+            <value>
+                <fullName>CHA Intervention and Payments</fullName>
+                <default>false</default>
+                <label>CHA Intervention and Payments</label>
+            </value>
+            <value>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <label>Payment</label>
+            </value>
+            <value>
+                <fullName>Pending Delivery</fullName>
+                <default>false</default>
+                <label>Pending Delivery</label>
+            </value>
+            <value>
+                <fullName>Delivery to Customer</fullName>
+                <default>false</default>
+                <label>Delivery to Customer</label>
+            </value>
+            <value>
+                <fullName>PO Raised</fullName>
+                <default>false</default>
+                <label>Empty Container Returned back</label>
+            </value>
+            <value>
+                <fullName>Delivery Completed</fullName>
+                <default>false</default>
+                <label>Delivery Completed</label>
+            </value>
+            <value>
+                <fullName>Closed(Delivered / Cancelled)</fullName>
+                <default>false</default>
+                <label>Closed(Delivered / Cancelled)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

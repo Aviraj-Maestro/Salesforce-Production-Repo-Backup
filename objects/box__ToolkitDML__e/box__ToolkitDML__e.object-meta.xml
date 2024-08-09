@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A way to execute Toolkit&apos;s commitChanges() async to be able to chain multiple Invocable Methods in Flows</description>
+    <eventType>HighVolume</eventType>
+    <label>Toolkit DML</label>
+    <pluralLabel>Toolkit DML</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

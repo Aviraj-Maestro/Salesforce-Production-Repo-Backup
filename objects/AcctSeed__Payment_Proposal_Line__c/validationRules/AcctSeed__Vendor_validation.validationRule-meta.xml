@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Vendor_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(ISBLANK(AcctSeed__Parent__c), false, IF(AcctSeed__Parent__r.AcctSeed__Vendor__c != AcctSeed__Vendor__c ,true ,false))</errorConditionFormula>
+    <errorDisplayField>AcctSeed__Vendor__c</errorDisplayField>
+    <errorMessage>The Vendor on the Payable must match the Vendor on the parent Payment Proposal Line</errorMessage>
+</ValidationRule>

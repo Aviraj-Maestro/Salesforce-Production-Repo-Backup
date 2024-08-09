@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Record_Not_Allowed_Standard</fullName>
+    <active>false</active>
+    <description>Create new account address is not allowed from Standard new button.</description>
+    <errorConditionFormula>IF(AND(ISNEW(),NOT(IsAddressFromCustomUI__c)),true,false)</errorConditionFormula>
+    <errorMessage>Please use &apos;New&apos; account address button from account related list to add new address.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JunoDoc__Juno_Doc_Trigger__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Juno Doc Trigger</label>
+    <referenceTo>JunoDoc__Juno_Doc_Trigger__c</referenceTo>
+    <relationshipLabel>Juno Doc Post Trigger Actions</relationshipLabel>
+    <relationshipName>Juno_Doc_Post_Trigger_Actions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

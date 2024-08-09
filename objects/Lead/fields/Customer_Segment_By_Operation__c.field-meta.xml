@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Segment_By_Operation__c</fullName>
+    <label>Customer Segment - By Operation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>For-Hire: 10+ Fleet</fullName>
+                <default>false</default>
+                <label>For-Hire: 10+ Fleet</label>
+            </value>
+            <value>
+                <fullName>For-Hire: &lt;10 Fleet</fullName>
+                <default>false</default>
+                <label>For-Hire: &lt;10 Fleet</label>
+            </value>
+            <value>
+                <fullName>Private 10+ Fleet</fullName>
+                <default>false</default>
+                <label>Private 10+ Fleet</label>
+            </value>
+            <value>
+                <fullName>Private less than 10 Fleet</fullName>
+                <default>false</default>
+                <label>Private less than 10 Fleet</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Owner-Operator</fullName>
+                <default>false</default>
+                <label>Owner-Operator</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

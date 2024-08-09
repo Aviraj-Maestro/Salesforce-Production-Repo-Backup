@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>opportunity</fullName>
+    <active>true</active>
+    <businessProcess>opportunity read</businessProcess>
+    <label>B2B Opportunity</label>
+    <picklistValues>
+        <picklist>Billing_Address_with_Zip_Code__c</picklist>
+        <values>
+            <fullName>Account Billing Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>From Contact Role</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Container_Type__c</picklist>
+        <values>
+            <fullName>20%27 HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40%27 HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>45%27</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Type__c</picklist>
+        <values>
+            <fullName>Existing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maestro Branch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery_Type__c</picklist>
+        <values>
+            <fullName>Door Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Store Pick up</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery_finalization_stage__c</picklist>
+        <values>
+            <fullName>Delivery with Liftgate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivery without Liftgate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fitment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self - Pickup</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_Eligible_For_EMI__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Looking_for__c</picklist>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tire %2B Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Mode_of_Payment__c</picklist>
+        <values>
+            <fullName>Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Dropship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Factory to Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maestro</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pa__c</picklist>
+        <values>
+            <fullName>Advance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Due on Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part Payment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_for_Objection__c</picklist>
+        <values>
+            <fullName>Credit Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivery Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Objections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Related to Value</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Terms</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_for_loss__c</picklist>
+        <values>
+            <fullName>Brand_Preference%2FOrigin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Logistics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Size</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price%2F Payment_Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stock_Unavailable%2FNew size</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Receiving_Person_Details__c</picklist>
+        <values>
+            <fullName>From Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEW</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_ManagerNew__c</picklist>
+        <values>
+            <fullName>SM1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sevice_Type__c</picklist>
+        <values>
+            <fullName>Only Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Only Tire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tire%2BService</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shipping_Address_with_Zip_Code__c</picklist>
+        <values>
+            <fullName>Account Shipping Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>From Contact Role</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Same as above</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

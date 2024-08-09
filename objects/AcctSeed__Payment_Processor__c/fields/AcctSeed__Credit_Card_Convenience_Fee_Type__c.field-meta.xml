@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcctSeed__Credit_Card_Convenience_Fee_Type__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Relates to payments made within Salesforce. Select a flat fee or percentage for adding convenience fees to credit card payments.</inlineHelpText>
+    <label>Credit Card Convenience Fee Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CC Flat Fee</fullName>
+                <default>false</default>
+                <label>CC Flat Fee</label>
+            </value>
+            <value>
+                <fullName>CC Percent</fullName>
+                <default>false</default>
+                <label>CC Percent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
