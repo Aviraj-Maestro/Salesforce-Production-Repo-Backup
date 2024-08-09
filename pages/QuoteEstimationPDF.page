@@ -1,0 +1,209 @@
+<apex:page renderAs="pdf"  label="QuotePDF" controller="CreateQuotePDFExtension" action="{!createPDFContent}" sidebar="false" showHeader="false" standardStyleSheets="false" applyBodyTag="false">
+    
+    <head>
+        <title>Quote PDF</title>
+        <style>
+            .headerCSS{
+                background-color:#FFD732;
+                padding-bottom: 1px;
+                font-family: Arial;
+                font-size:14px;
+                color:#191970;
+            }
+            .borderTopClass{
+                border-top: 1px solid black;
+            }
+
+            .totalRowCSS{
+                background-color:#FFFFFF;
+                font-family: "Arial MT";
+                font-size:12px;
+            }
+            
+            .parentDiv{
+                min-height: 100%;
+                outline: medium none;
+                overflow: visible;
+                position: relative;
+                white-space: nowrap;
+            }
+            
+            .leftChildDiv{
+                float:left;
+                width:50%;                
+                white-space: nowrap;
+            }
+
+            .rightChildDiv{
+                float:right;
+                width:48%;
+                white-space: nowrap;
+                padding-top:10px;
+            }
+            
+            .headerAddressClass{
+                font-family: Arial;
+                font-size:14px;
+                color:#191970;
+            }
+
+            .headerAddressDetailClass{
+                font-family: "Arial MT";
+                font-size:12px;
+            }
+
+            .footerDetailClass{
+                font-family: "Arial MT";
+                font-size:10px;
+            }
+
+            .headerInformationClass{
+                padding:6px;
+                font-family: Arial;
+                font-size:12px;
+                margin:0px;
+                border-top: 1px solid #191970;
+            }
+
+            .horizontalClass{
+                height:2px;
+                background-color:black;
+            }
+
+            .textAlign{
+                text-align: right;
+            }
+
+            .totalPriceCSS{
+                font-family: "Arial MT";
+                font-size:12px;
+                font-weight: normal;
+                border-top:1px solid black;
+                border-bottom: 1px solid black;
+                padding-left:2px;
+                padding-top:2px;
+                padding-bottom:1px;
+            }
+
+            .pdfClass{
+                height:100%;
+            }
+        </style>
+    </head>
+    <div class="pdfClass">
+        <apex:form >
+            <!-- header infromation -->
+            <apex:outputText escape="false" value="{!pdfWrapperObject.headerWrapper.mainHeader}"></apex:outputText>
+            
+            <!-- body information -->
+            <div class="parentDiv">
+                <div class="leftChildDiv">
+                    <hr class="horizontalClass"/>
+                    <apex:outputText rendered="{!pdfWrapperObject.isDoorDelivery}">
+                        <b class="headerAddressClass">SHIP FROM:</b><br/><apex:outputText escape="false" styleClass="headerAddressDetailClass" value="{!pdfWrapperObject.bodyWrapper.shipFromAddress}"></apex:outputText>
+                    </apex:outputText>
+                    <apex:outputText rendered="{!NOT(pdfWrapperObject.isDoorDelivery)}">
+                        <b class="headerAddressClass">PICKUP ADDRESS:</b><br/><apex:outputText escape="false" styleClass="headerAddressDetailClass" value="{!pdfWrapperObject.bodyWrapper.pickupAddress}"></apex:outputText>
+                    </apex:outputText>
+                    <hr class="horizontalClass"/>
+                    <b class="headerAddressClass">ESTIMATE FOR:</b><br/><apex:outputText escape="false" styleClass="headerAddressDetailClass" value="{!pdfWrapperObject.bodyWrapper.billToAddress}"></apex:outputText>
+                    <apex:outputText rendered="{!pdfWrapperObject.isDoorDelivery}">
+                        <hr class="horizontalClass"/>
+                        <b class="headerAddressClass">DELIVERY AT:</b><br/><apex:outputText escape="false" styleClass="headerAddressDetailClass" value="{!pdfWrapperObject.bodyWrapper.deliveryAddress}"></apex:outputText>
+                    </apex:outputText>
+                </div>
+                <div class="rightChildDiv">
+                    <p class="headerInformationClass" style="text-align:right;font-size:17px;color:#191970"><b>ESTIMATE</b></p>
+                    <p class="headerInformationClass"><b>DATE</b><apex:outputText style="float:right;" escape="false" value="{!pdfWrapperObject.headerWrapper.billDate}"></apex:outputText></p>
+                    <p class="headerInformationClass"><b>ESTIMATE #</b><apex:outputText style="float:right;" escape="false" value="{!pdfWrapperObject.quoteRecord.Quote_Number__c}"></apex:outputText></p>
+                    <p class="headerInformationClass"><b>VALID UNTIL</b><apex:outputText style="float:right;" escape="false" value="{!pdfWrapperObject.headerWrapper.validUntilDate}"></apex:outputText></p>
+                    <p class="headerInformationClass"><b>DELIVERY TYPE</b><apex:outputText style="float:right;" escape="false" value="{!pdfWrapperObject.quoteRecord.Delivery_Type__c}"></apex:outputText></p>
+                    <apex:outputText rendered="{!AND(pdfWrapperObject.isDoorDelivery,pdfWrapperObject.isLiftGateCharge)}">
+                        <p class="headerInformationClass"><b>LIFT GATE REQUIRED</b><apex:outputText style="float:right;" escape="false" value="{!pdfWrapperObject.quoteRecord.LiftGate_Requirement__c}"></apex:outputText></p>
+                    </apex:outputText>
+                    <p class="headerInformationClass"><b>PAYMENT TERMS</b><apex:outputText style="text-align:right;float:right;" escape="false" value="{!pdfWrapperObject.quoteRecord.PaymentTerms__c}"></apex:outputText></p>
+                </div>
+            </div>
+            
+            <!-- Quote line item information -->
+            <div style="clear:both">
+                <apex:outputText rendered="{!IF(pdfWrapperObject.bodyWrapper.mapOfGroupNameAndQLI!=null,true,false)}">
+                    <apex:repeat value="{!pdfWrapperObject.bodyWrapper.mapOfGroupNameAndQLI}" var="groupName">
+                        <div style="page-break-inside:avoid; page-break-after:auto; position:relative;display:block;">
+                            <apex:pageBlock >
+                                <apex:pageBlockTable value="{!pdfWrapperObject.bodyWrapper.mapOfGroupNameAndQLI[groupName]}" var="record" width="100%" headerClass="headerCSS borderTopClass" rowClasses="totalRowCSS"> 
+                                    <apex:column headerValue="PRODUCT" style="padding-bottom:3px;word-wrap:break-word;width:42%" value="{!record.ProductName__c}"/>
+                                    <apex:column headerValue="SKU" style="padding-bottom:3px;word-wrap:break-word;width:13%" value="{!record.Product_SKU__c}"/>
+                                    <apex:column style="text-align:right;padding-bottom:3px;word-wrap:break-word;width:10%;padding-right:5px;" rendered="{!IF(OR(BEGINS(record.ProductName__c,'FET'),BEGINS(record.ProductName__c,'State Fee')),true,false)}" headerValue="QUANTITY"/>
+                                    <apex:column style="text-align:right;padding-bottom:3px;word-wrap:break-word;width:10%;padding-right:5px;" rendered="{!IF(OR(BEGINS(record.ProductName__c,'FET'),BEGINS(record.ProductName__c,'State Fee')),false,true)}" headerValue="QUANTITY" value="{!pdfWrapperObject.bodyWrapper.mapOfOLIIdANDQuantity[record.Id]}"/>
+                                    <apex:column headerValue="UNIT PRICE" headerClass="textAlign" style="text-align:right;padding-bottom:3px;word-wrap:break-word;width:15%;" value="{!pdfWrapperObject.bodyWrapper.mapOfOLIIdANDUnitPrice[record.Id]}"/>
+                                    <apex:column headerValue="TOTAL" headerClass="textAlign" style="text-align:right;padding-bottom:3px;word-wrap:break-word;width:15%;" value="{!pdfWrapperObject.bodyWrapper.mapOfOLIIdANDTotal[record.Id]}"/>
+                                </apex:pageBlockTable>
+                                <apex:pageBlockTable value="{!pdfWrapperObject.bodyWrapper.mapOfStringGroupNameAndTotalPrice[groupName]}" style="float:right;" var="record1" width="24%"> 
+                                    <apex:column headerValue="Section Total" headerClass="totalPriceCSS"  style="padding-left:20px" />
+                                    <apex:column headerValue="{!pdfWrapperObject.bodyWrapper.mapOfStringGroupNameAndTotalPrice[groupName]}" headerClass="totalPriceCSS textAlign" />
+                                </apex:pageBlockTable>
+                            </apex:pageBlock>
+                        </div>
+                        <br/>
+                    </apex:repeat>
+                </apex:outputText>
+                
+                
+                <!-- total information-->
+                <div style="height:60px;page-break-inside:avoid; page-break-after:auto; position:relative;display:block;">
+                    <apex:pageBlock >
+                        <apex:pageBlockTable value="{!pdfWrapperObject.quoteRecord}" var="record" align="left" width="50%" headerClass="headerCSS"  border="1px" rowClasses="totalRowCSS"> 
+                            <apex:column style="padding-bottom:3px;padding-right:2px;text-align:right;width:5%" headerValue="TOTAL # OF TIRES" value="{!pdfWrapperObject.bodyWrapper.totalTiresCount}"/>
+                            <apex:column style="padding-bottom:3px;padding-right:2px;text-align:right;width:3%" headerValue="TIRE TOTAL" value="{!pdfWrapperObject.bodyWrapper.totalTiresPrice}"/>
+                            <apex:column style="padding-bottom:3px;padding-right:2px;text-align:right;width:3%" headerValue="FET TOTAL" value="{!pdfWrapperObject.bodyWrapper.totalFeeAmount}"/>
+                        </apex:pageBlockTable>
+                        <div>
+                            <table class="headerAddressDetailClass" style="width:40%;float:right;text-align:right;">
+                                <tr>
+                                    <td><b>Taxable value</b></td>
+                                    <td><b>{!pdfWrapperObject.bodyWrapper.subtotal}</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sales Tax Amount</b></td>
+                                    <td><b>{!pdfWrapperObject.bodyWrapper.tax}</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>State Fees</b></td>
+                                    <td><b>{!pdfWrapperObject.bodyWrapper.totalStateFee}</b></td>
+                                </tr>
+                                <apex:outputText rendered="{!AND(pdfWrapperObject.isDoorDelivery,pdfWrapperObject.isLiftGateCharge)}">
+                                    <tr>
+                                        <td><b>Lift Gate Charges</b></td>
+                                        <td><b>{!pdfWrapperObject.bodyWrapper.liftGateCharges}</b></td>
+                                    </tr>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!pdfWrapperObject.isDoorDelivery}">
+                                    <tr>
+                                        <td><b>Freight Charges</b></td>
+                                        <td><b>{!pdfWrapperObject.bodyWrapper.freightCharges}</b></td>
+                                    </tr>
+                                </apex:outputText>
+                                <!-- apex:outputText rendered="{!pdfWrapperObject.quoteRecord.Other_Charges__c>0}" -->
+                                    <tr>
+                                        <td><b>Misc. Charges</b></td>
+                                        <td><b>{!pdfWrapperObject.bodyWrapper.otherCharges}</b></td>
+                                    </tr>                                
+                                <!-- /apex:outputText -->
+                                <tr>
+                                    <td><b>Estimate Total</b></td>
+                                    <td style="border-top:1px solid black;border-bottom:3px solid;border-bottom-style:double"><b>{!pdfWrapperObject.bodyWrapper.grandTotal}</b></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </apex:pageBlock>
+                </div>
+                <div style="page-break-inside:avoid; page-break-after:auto; position:relative;display:block;">
+                    <div class="headerAddressDetailClass" style="font-family:Arial MT;font-size:12px;width:52%"><b>Comments:</b><br/><apex:outputText escape="false" value="{!pdfWrapperObject.quoteRecord.Comments_for_the_Customer__c}"></apex:outputText></div>
+                    <div class="headerAddressDetailClass"><apex:outputText escape="false" value="{!pdfWrapperObject.footerWrapper.bankInformation}"></apex:outputText></div>
+                    <div class="footerDetailClass"><apex:outputText escape="false"  value="{!pdfWrapperObject.footerWrapper.extraInformation}"></apex:outputText></div>
+                </div>
+            </div>
+        </apex:form>
+    </div>
+</apex:page>

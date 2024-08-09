@@ -1,0 +1,28 @@
+<apex:page standardController="Quote" extensions="QuotePDFExtension" showHeader="false" title="Quotation PDF">
+    <html style="height:100%; width:100%">
+        <head><title>Test Title</title></head>
+        <body style="height:100%; width:100%">
+            <br/>
+    <div id ="theButton">
+        <apex:form >
+            <table class="repeatTableHeader" columns="10" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+            <tr>
+<!--<td colspan="2" style="width:10%; height: 10px;border: 1px solid black"></td>-->
+            <td colspan="5" style="width:50%; height: 10px; text-align:right;"><apex:commandButton action="{!cancel}" value="Cancel" id="theCancelButton" style="width:70px;"/></td>
+                
+                <td colspan="5" style="width:50%; height: 10px;"><apex:commandButton action="{!savePDF}" value="Save PDF" id="theButton" style="width:70px;"/></td>
+        </tr>
+        </table>
+            
+        </apex:form>
+    </div>
+    <br/>
+    <div id ="thePDF" style="height:100%; width:100%;">
+        
+        <iframe style="height:100%; width:100%" src="{!'https://maestrotradex--c.visualforce.com/apex/QuotePDF?id='+recordId}" frameBorder="0"/>
+        
+    </div>
+            
+        </body>
+    </html>
+</apex:page>

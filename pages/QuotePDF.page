@@ -1,0 +1,285 @@
+<apex:page showHeader="false" renderAs="pdf" applyBodyTag="false" applyHtmlTag="false" standardController="Quote" extensions="QuotePDFExtension">
+     <head>
+                <style type="text/css" media="print" rel="stylesheet">
+                       @page {
+                    padding-top:140px;
+                                 @top-center {
+                                       content: element(header);
+                               }
+                               
+                            }
+                                     div.header {
+                                      position: running(header);
+                           }
+                            
+                      
+                    </style>
+              </head>
+    
+    <div class="header">
+        <br/>
+        <br/>
+        <table columns="5" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+            <tr>
+                <td colspan="5" style="width:80%; border:solid 2px black; font-size:large; border-bottom:none; "><center><apex:image url="{!$Resource.MaestroLogo }" height="100"/></center></td>
+            </tr>
+            <tr>
+            <td colspan="5" style="width:100%;border:solid 2px black;"><center><b>{!$Label.Aeolus_Registered_Address}</b></center></td>
+        </tr> 
+        </table>
+    </div>
+     
+    <table columns="5" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        
+        <tr>
+            <td colspan="5" style="width:100%; border:solid 2px black; font-size:large; "><center><b>Quotation/Estimate</b></center></td>
+        </tr>
+        <tr>
+            <td rowspan="3" colspan="3" style="width:60%; border:solid 2px black;"><i>Pickup/Fitment Address:</i> {!pickupAddress}</td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Estimate Date</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;">{!Month(TODAY())}/{!DAY(TODAY())}/{!Year(TODAY())}</td>
+        </tr>
+        <tr>
+            
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Estimate #</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"> {!Quote.Quote_Number__c } </td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Sales Manager:</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black; ">{!Quote.Sales_Manager__c}</td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <table columns="6" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        <tr>
+            <td colspan="4" style="width:60%; border:solid 2px black"><i><b>Estimate For:</b></i></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Customer #</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;">{!Quote.Account.Customer_Number__c }</td>
+            <!--<td colspan="1" style="width:20%; border:solid 2px black;"><b>Valid Until</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black;background:#ffc0cb;">10 days from Estimate Date</td>-->
+        </tr>
+        <tr>
+            <td colspan="4" style="width:60%; border:solid 2px black; "><i>Customer/Company Name:</i> {!Quote.Account.Name}</td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Valid Until</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;">{!IF(Quote.Valid_Untill__c!= NULL,Quote.Valid_Untill__c, '')} {!IF(Quote.Valid_Untill__c!= NULL,' from Estimate Date', '')} </td>
+            <!--<td colspan="1" style="width:20%; border:solid 2px black;"><b>Customer #</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black;background:#ffc0cb;">{Customer Number}</td>-->
+        </tr>
+        <tr>
+            <td colspan="4" style="width:60%; border:solid 2px black;"><i>Billing Address:</i> {!quote.Opportunity.Street_Address_BillingAddress__c}, {!quote.Opportunity.City_BillingAddress__c}</td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Delivery Type</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black;">{!Quote.Delivery_Type__c}</td>
+        </tr>
+        
+        <!--<tr>
+<td colspan="1" style="width:20%; border:solid 2px black;"><b>Fitment Type</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black; background:#ffc0cb;">{Fitment Type}</td>
+</tr>
+
+<tr>
+<td colspan="4" style="width:60%; border:solid 2px black; background:#ffc0cb;"><i>Shipping Address:</i> {Address}</td>
+<td colspan="1" style="width:20%; border:solid 2px black;"><b>Delivery Type</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black; background:#ffc0cb;">{Delivery Type}</td>
+</tr>
+<tr>
+<td colspan="1" style="width:15%; border:solid 2px black;"><i>Contact #</i></td>
+<td colspan="1" style="width:15%; border:solid 2px black; background:#ffc0cb;">{Contact Number}</td>
+<td colspan="1" style="width:15%; border:solid 2px black"><i>Contact Person</i></td>
+<td colspan="1" style="width:15%; border:solid 2px black; background:#ffc0cb;">{Contact Person}</td>
+<td colspan="1" style="width:20%; border:solid 2px black;"><b>Fitment Type</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black; background:#ffc0cb;">{Fitment Type}</td>
+</tr>
+
+<tr>
+<td colspan="4" style="width:60%; border:solid 2px black; background:#ffc0cb;"><i>Email Id:</i> {Email}</td>
+<td colspan="1" style="width:20%; border:solid 2px black;"><b>Payment Terms</b></td>
+<td colspan="1" style="width:20%; border:solid 2px black; background:#ffc0cb;">{Payment Terms}</td>
+</tr>-->
+        
+        <tr>
+            <td colspan="1" style="width:15%; border:solid 2px black;"><i>State</i></td>
+            <td colspan="1" style="width:15%; border:solid 2px black; ">{!quote.Opportunity.State_BillingAddress__c}</td>
+            <td colspan="1" style="width:15%; border:solid 2px black"><i>Zip Code</i></td>
+            <td colspan="1" style="width:15%; border:solid 2px black; ">{!quote.Opportunity.ZIP_Code_BillingAddress__c}</td>
+            <td colspan="1" style="width:20%; border:solid 2px black;"><b>Payment Terms</b></td>
+            <td colspan="1" style="width:20%; border:solid 2px black; ">{!Quote.Payment_terms__c} {!IF(Quote.Payment_terms__c=='Credit',' - '+ TEXT(Quote.Opportunity.Credit_Days__c) +' Days','')} </td>
+        </tr>
+    </table>
+    <br/> <br/>
+    <table columns="6" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        <tr>
+            <td rowspan="2" colspan="6" style="width:60%; border:solid 2px black; "><i>Shipping Address:</i> {!quote.Opportunity.Street_Address_ShippingAddress__c}, {!quote.Opportunity.City_ShippingAddress__c}</td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+        </tr>
+        
+        <tr>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/ "></td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:15%; border:solid 2px black;"><i>State</i></td>
+            <td colspan="1" style="width:40%; border:solid 2px black; ">{!quote.Opportunity.State_ShippingAddress__c}</td>
+            <td colspan="1" style="width:15%; border:solid 2px black"><i>Zip Code</i></td>
+            <td colspan="1" style="width:40%; border:solid 2px black; ">{!quote.Opportunity.ZIP_Code_ShippingAddress__c}</td>
+            <!-- <td colspan="1" style="width:25%; /*border:solid 2px black;*/"></td>
+<td colspan="1" style="width:25%; /*border:solid 2px black; background:#ffc0cb;*/"></td>-->
+        </tr>
+    </table>
+    
+    <br/> <br/>
+    <table columns="6" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        <tr>
+            <td rowspan="2" colspan="6" style="width:60%; border:solid 2px black; "><i>Contact Person:</i> {!Quote.Opportunity.Receiving_Contact__r.FirstName} {!Quote.Opportunity.Receiving_Contact__r.LastName}</td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+        </tr>
+        
+        <tr>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+            <td colspan="1" style="width:20%; /*border:solid 2px black;*/ "></td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:15%; border:solid 2px black;"><i>Phone:</i></td>
+            <td colspan="1" style="width:40%; border:solid 2px black; ">{!Quote.Opportunity.Phone_ReceivingContact__c}</td>
+            <td colspan="1" style="width:15%; border:solid 2px black"><i>Email</i></td>
+            <td colspan="1" style="width:40%; border:solid 2px black; ">{!Quote.Opportunity.Email_ReceivingContact__c}</td>
+            <!--<td colspan="1" style="width:20%; /*border:solid 2px black;*/"></td>
+<td colspan="1" style="width:20%; /*border:solid 2px black; background:#ffc0cb;*/"></td>-->
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <table columns="9" style="width:100%; border-collapse: collapse;">
+        <tr>
+            <th style="width:10%; border:solid 1px black; border-top:solid 2px black;">SKU</th>
+            <th style="width:30%; border:solid 1px black; border-top:solid 2px black;">Description</th>
+            <!--<th style="width:10%; border:solid 1px black; border-top:solid 2px black;">FET</th>-->
+            <th style="width:10%; border:solid 1px black; border-top:solid 2px black;">Quantity</th>
+            
+            <th style="width:10%; border:solid 1px black; border-top:solid 2px black;">Unit Price<br/>(in USD)</th>
+            <th style="width:10%; border:solid 1px black; border-top:solid 2px black;">Discount</th>
+            <th style="width:10%; border:solid 1px black; border-top:solid 2px black;">Net Price<br/>(in USD)</th>
+            <th style="width:10%; border:solid 1px black; border-right:solid 2px black; border-top:solid 2px black;">Amount<br/>(in USD)</th>
+            
+        </tr>
+        <!--<tr>
+<td colspan="8" style="width:100%; border:solid 1px black; border-left:solid 2px black;border-right:solid 2px black;"><center><i>Line Items Here</i></center></td>
+
+</tr>-->
+        
+        <apex:repeat value="{!Quote.quoteLineItems}" var="qli" id="theQLIRepeat">
+            <tr>
+                <td style="width:10%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!qli.Product2.SKU__c}</td>
+                <!--<td style="width:40%; border:solid 1px black; border-top:solid 2px black;">{!qli.Description}</td>-->
+                <td style="width:30%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!qli.Line_Item_Description__c}</td>
+                <!--<td style="width:10%; border:solid 1px black; border-top:solid 2px black;">{!qli.Product2.FET_TYPE__c}<br/>(${!qli.Product2.FET_Rate__c})</td>-->
+                <td style="width:10%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!qli.Quantity}</td>
+                
+                <td style="width:10%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!qli.Selling_Price__c}</td>
+                <td style="width:10%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!IF((AND(qli.Discount!= NULL, qli.Discount!= 0)),qli.Discount, 0)}% <br/> (${!qli.Discount_per_Unit__c}) <br/> {!IF((AND(qli.Discount!= NULL, qli.Discount!= 0)),'(','')}{!qli.Discount_Type__c }{!IF((AND(qli.Discount!= NULL, qli.Discount!= 0)),')','')}</td>
+                <td style="width:10%; border:solid 1px black; border-top:solid 2px black;text-align:center">{!qli.Net_Price__c}</td>
+                <td style="width:10%; border:solid 1px black; border-right:solid 2px black; border-top:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!qli.Total_Selling_Price__c}"/> </apex:outputText></td>
+            </tr>
+            
+            <tr>
+                <td style="width:10%; border:solid 1px black; border-left:solid 2px black;text-align:center">{!RIGHT(qli.Product2.FET_TYPE__c, LEN(qli.Product2.FET_TYPE__c)-4)}</td>
+                <!--<td style="width:40%; border:solid 1px black; border-top:solid 2px black;">{!qli.Description}</td>-->
+                <td style="width:30%; border:solid 1px black;text-align:center">{!qli.Product2.FET_TYPE__c}</td>
+                <!--<td style="width:10%; border:solid 1px black; border-top:solid 2px black;">{!qli.Product2.FET_TYPE__c}<br/>(${!qli.Product2.FET_Rate__c})</td>-->
+                <td style="width:10%; border:solid 1px black;text-align:center">{!qli.Quantity}</td>
+                
+                <td style="width:10%; border:solid 1px black;text-align:center">{!qli.FET_Rate__c}</td>
+                <td style="width:10%; border:solid 1px black; "></td>
+                <td style="width:10%; border:solid 1px black;text-align:center ">{!qli.FET_Rate__c}</td>
+                <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!qli.FET_Total__c}"/> </apex:outputText></td>
+            </tr>
+            
+        </apex:repeat>
+        <!-- Add LINE ITEMS HERE-->
+        <tr>
+            <td rowspan="9" colspan="3" style="width:70%; border:solid 1px black; border-left:solid 2px black;border-top:solid 2px black;border-bottom:solid 2px black;"><b>Bank Information: </b><br/><b>Account Name: </b>{!$Label.Aeolus_Bank_MICR_Code}<br/><b>Bank Name: </b>{!$Label.Aeolus_Bank_Name}<br/><b>Account Number: </b>{!$Label.Aeolus_Bank_Account_Number}<br/><b>Routing Number: </b>{!$Label.Aeolus_Bank_IFSC_Code}</td>
+            <td colspan="3" style="width:20%; border:solid 1px black;border-top:solid 2px black;">SubTotal</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;border-top:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!Quote.Total_Price__c}"/></apex:outputText></td>
+        </tr>
+        <!--<tr>
+<td colspan="2" style="width:20%; border:solid 1px black;">Discount</td>
+<td style="width:10%; border:solid 1px black; border-right:solid 2px black;">{!IF((AND(Quote.Discount!= NULL, Quote.Discount!= 0)),ROUND((Quote.SubTotal*Quote.Discount/100),0), Quote.SubTotal)}</td>
+</tr>-->
+        <tr>
+            <td colspan="3" style="width:20%; border:solid 1px black;">Sales Tax (@ {!IF((AND(Quote.Sales_Tax__c!= NULL, Quote.Sales_Tax__c!= 0)),Quote.Sales_Tax__c, 0)} %)</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center">{!IF((AND(Quote.Tax!= NULL, Quote.Tax!= 0)),Quote.Tax, 0)}</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width:20%; border:solid 1px black;">Shipping</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center">{!IF(AND(Quote.Shipping_Charges__c!= NULL, Quote.Shipping_Charges__c!= 0) ,Quote.Shipping_Charges__c,0) }</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:10%; border:solid 1px black;">Fitment Charges</td>
+            <td colspan="1" style="width:10%; border:solid 1px black;text-align:center">{!Quote.Fitments_Charges__c}</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center">{!Quote.Fitments_Charges__c*Quote.Total_Quantity__c }</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2" style="width:10%; border:solid 1px black;">Other Charges</td>
+            <td colspan="1" style="width:10%; border:solid 1px black;">Lift Gate Charges</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center">{!Quote.Lift_Gate_Charges__c}</td>
+        </tr>
+        <tr>
+            <!--<td colspan="2" rowspan="2" style="width:20%; border:solid 1px black;">Other Charges</td>-->
+            <td colspan="1" style="width:10%; border:solid 1px black;">Misc. Charges</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;text-align:center">{!Quote.Other_Charges__c}</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width:20%; border:solid 1px black;border-bottom:solid 2px black;">Grand Total</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;border-bottom:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!Quote.Grand_Total_wo_Settlement__c}"/> </apex:outputText></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width:20%; border:solid 1px black;border-bottom:solid 2px black;">Adjustment</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;border-bottom:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!Quote.Settlement_Discount__c}"/> </apex:outputText></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width:20%; border:solid 1px black;border-bottom:solid 2px black;">Grand Total After Adjustment</td>
+            <td style="width:10%; border:solid 1px black; border-right:solid 2px black;border-bottom:solid 2px black;text-align:center"><apex:outputText value="{0,number,00.00}"> <apex:param value="{!Quote.Grand_Total__c}"/> </apex:outputText></td>
+        </tr>
+    </table>
+    
+    <br/>
+    <br/>
+    <table style="width:100%; border-collapse: collapse;page-break-inside: avoid;">
+        <tr>
+            <td style="width:100%; border:solid 2px black;"><b>Remarks: </b>{!Quote.Opportunity.Special_Instruction__c}</td>
+        </tr>
+        <!--<tr>
+<td style="width:100%; border:solid 2px black; background:#ffc0cb;"><b>Comments or Special Instructions Provided by Customer:</b> {Special Instructions}</td>
+</tr>-->
+        <tr>
+            <td style="width:100%; border:solid 2px black;">{!Quote.Comments_for_the_Customer__c }</td>
+        </tr>
+        <tr>
+            <td style="width:100%; border:solid 2px black;"><b>Terms &amp; Conditions: </b>{!$Label.TnC}</td>
+        </tr>
+        <tr>
+            <td style="width:100%; border:solid 2px black;"><b>Warranty Information: </b>{!$Label.Warranty_Information}</td>
+        </tr>
+        
+    </table>
+    <br/><br/>
+    <table columns="6" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        <tr>
+            <td colspan="6" style="width:100%; border:solid 2px black; font-size:large; "><center>If you have any questions concerning this estimate, please feel free to contact the following contact details</center></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="width:50%; border:solid 2px black; "><i>Contact Number:</i> {!Quote.Opportunity.Sales_Manager__r.Phone}</td>
+            <td colspan="3" style="width:50%; border:solid 2px black; "><i>Email:</i> {!Quote.Opportunity.Sales_Manager__r.Email}</td>
+        </tr>
+    </table>
+    <br/>
+    <table columns="6" style="width:100%; border-collapse: collapse; page-break-inside: avoid;">
+        <tr>
+            <td colspan="6" style="width:100%; border:solid 2px black;"><center><a href="https://www.maestrotire.com/">THANK YOU FOR SHOWING INTEREST ON OUR PRODUCT! FOR MORE DETAILS PLEASE VISIT WWW.MAESTROTIRE.COM</a></center></td>
+        </tr>
+    </table>
+        
+   
+</apex:page>

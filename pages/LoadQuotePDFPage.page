@@ -1,0 +1,6 @@
+<apex:page >
+    <script>
+        window.location.href = '/lightning/r/Quote/{!$CurrentPage.parameters.id}/view';
+        window.open('/apex/QuoteEstimationPDF?Id={!$CurrentPage.parameters.id}','_blank');
+    </script>
+</apex:page>
